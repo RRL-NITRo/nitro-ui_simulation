@@ -4,8 +4,7 @@
   <name>jsk_rviz_plugins</name>
   <version>2.1.8</version>
   <description>The jsk_rviz_plugins package</description>
-  <maintainer email="k-okada@jsk.t.u-tokyo.ac.jp">Kei Okada</maintainer>
-  <maintainer email="Kotakkucu@gmail.com">Kotakku</maintainer>
+  <maintainer email="clp13214@nitech.jp">kotaro</maintainer>
   <license>BSD</license>
   <url type="repository">http://github.com/jsk-ros-pkg/jsk_visualization</url>
   <url type="bugtracker">http://github.com/jsk-ros-pkg/jsk_visualization/issues</url>

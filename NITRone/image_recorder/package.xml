@@ -4,7 +4,7 @@
   <name>image_recorder</name>
   <version>0.0.0</version>
   <description>TODO: Package description</description>
-  <maintainer email="hiratomo160309@icloud.com">sato</maintainer>
+  <maintainer email="clp13214@nitech.jp">kotaro</maintainer>
   <license>TODO: License declaration</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>

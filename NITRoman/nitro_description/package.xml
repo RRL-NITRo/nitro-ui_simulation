@@ -2,7 +2,7 @@
   <name>nitro_description</name>
   <version>0.0.0</version>
   <description>The nitro_description package</description>
-  <maintainer email="you@example.com">Your Name</maintainer>
+  <maintainer email="clp13214@nitech.jp">kotaro</maintainer>
   <license>Apache-2.0</license>
   <buildtool_depend>ament_cmake</buildtool_depend>
   <depend>rclcpp</depend>

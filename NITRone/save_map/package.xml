@@ -3,7 +3,7 @@
   <name>save_map</name>
   <version>0.0.0</version>
   <description>Save /rtabmap/cloud_map to PCD</description>
-  <maintainer email="hiratomo160309@icloud.com">tararararin</maintainer>
+  <maintainer email="clp13214@nitech.jp">kotaro</maintainer>
   <license>MIT</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>

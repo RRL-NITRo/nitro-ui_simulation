@@ -4,7 +4,7 @@
   <name>slam_stack</name>
   <version>0.1.0</version>
   <description>SLAM composition stack providing point cloud normalization and RTAB-Map integration.</description>
-  <maintainer email="kulala.mbili@gmail.com">yoshiko</maintainer>
+  <maintainer email="clp13214@nitech.jp">kotaro</maintainer>
   <license>MIT</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
