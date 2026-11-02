@@ -1,5 +1,5 @@
 format_version: 2.0
-robot_list: &RobotList [ project_nitro/nitromanlight ,project_nitro/NITRone]
+robot_list: &RobotList [ ../../choreonoid_model_NITRoUI/project/nitromanlight, ../../choreonoid_model_NITRoUI/project/NITRone ]
 
 registrations:
   - &Mission2

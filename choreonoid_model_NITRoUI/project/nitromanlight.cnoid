@@ -13,7 +13,7 @@ items:
       is_selected: true
       is_checked: true
       data:
-        file: "../../model/model_nitro/nitromanlight.body"
+        file: "../model/nitromanlight.body"
         format: CHOREONOID-BODY
         rootPosition: [ 0, 0, 0 ]
         rootAttitude: [
