@@ -14,10 +14,6 @@ find_package(sensor_msgs REQUIRED)
 find_package(yaml-cpp REQUIRED)
 find_package(geometry_msgs REQUIRED)
 
-include_directories(
-  include
-)
-
 add_executable(ps5_joy_publisher src/ps5_joy_publisher.cpp)
 
 
@@ -27,10 +23,6 @@ install(TARGETS
   ps5_joy_publisher
   DESTINATION lib/${PROJECT_NAME})
 
-
-  install(DIRECTORY launch
-  DESTINATION share/${PROJECT_NAME}/
-)
 install(DIRECTORY config
   DESTINATION share/${PROJECT_NAME}/
 )

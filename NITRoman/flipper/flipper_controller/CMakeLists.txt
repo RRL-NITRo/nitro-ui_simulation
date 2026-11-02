@@ -18,14 +18,6 @@ install(TARGETS
   flipper_control
   DESTINATION lib/${PROJECT_NAME})
 if(BUILD_TESTING)
-
-
-add_executable(joint_state_merge src/joint_state_merge.cpp)
-ament_target_dependencies(joint_state_merge rclcpp std_msgs sensor_msgs flipper_msgs)
-install(TARGETS
-  joint_state_merge
-  DESTINATION lib/${PROJECT_NAME})
-
   find_package(ament_lint_auto REQUIRED)
   # the following line skips the linter which checks for copyrights
   # comment the line when a copyright and license is added to all source files

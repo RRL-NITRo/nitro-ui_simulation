@@ -19,18 +19,10 @@ find_package(geometry_msgs REQUIRED)
 find_package(arm_msgs REQUIRED)
 find_package(flipper_msgs REQUIRED)
 
-include_directories(
-  include
-)
-
 # add_executable(ps5_joy_publisher src/ps5_joy_publisher.cpp)
 add_executable(joy2command src/joy2command.cpp)
 ament_target_dependencies(joy2command 
 rclcpp std_msgs geometry_msgs sensor_msgs arm_msgs yaml-cpp ps5_msgs flipper_msgs)
-
-add_executable(joy2commandnitromanbody src/joy2commandnitromanbody.cpp)
-ament_target_dependencies(joy2commandnitromanbody
-rclcpp std_msgs geometry_msgs sensor_msgs yaml-cpp ps5_msgs )
 
 add_executable(joy2command_drone src/joy2command_drone.cpp)
 ament_target_dependencies(joy2command_drone
@@ -45,19 +37,12 @@ install(TARGETS
   DESTINATION lib/${PROJECT_NAME}
 )
 install(TARGETS
-  joy2commandnitromanbody
-  DESTINATION lib/${PROJECT_NAME}
-)
-install(TARGETS
   joy2command_drone
   DESTINATION lib/${PROJECT_NAME}
 )
 install(TARGETS
   PanTilt_command_publisher
   DESTINATION lib/${PROJECT_NAME}
-)
-install(DIRECTORY launch
-  DESTINATION share/${PROJECT_NAME}/
 )
 install(DIRECTORY config
   DESTINATION share/${PROJECT_NAME}/
