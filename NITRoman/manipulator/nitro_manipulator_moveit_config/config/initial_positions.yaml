@@ -1,0 +1,9 @@
+# Default initial positions for imax_manipulator's ros2_control fake system
+
+initial_positions:
+  yaw_joint: 0
+  first_link_joint: 0.5
+  second_link_joint: 0.5
+  third_link_joint: 0.3
+  hand_pitch: 0.5
+  hand_roll: 0.2

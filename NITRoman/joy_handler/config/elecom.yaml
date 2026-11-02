@@ -1,0 +1,29 @@
+ps5_joy_publisher:
+  ros__parameters:
+    name: "elecom controller"
+    type: "elecom-controller"
+    buttons:
+      square: 0
+      cross: 2
+      circle: 3
+      triangle: 1
+      l1: 4
+      r1: 7
+      l2: 8
+      r2: 11
+      command_l: 17
+      command_r: 20
+      joy_l: 14
+      joy_r: 15
+      home: 19
+      capture: 22
+    axes:
+      left_joystick_x: 0
+      left_joystick_y: 1
+      right_joystick_x: 2
+      right_joystick_y: 3
+      cross_up: 7
+      cross_left: 6
+    deadzones:
+      left_joystick: 0.1
+      right_joystick: 0.1

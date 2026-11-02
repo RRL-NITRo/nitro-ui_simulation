@@ -1,0 +1,15 @@
+format_version: 2.0
+robot_list: &RobotList [ project_nitro/nitromanlight ,project_nitro/NITRone]
+
+registrations:
+  - &Mission3
+    name: M3
+    task_project: [ M3/M3 ]
+    robot_project: *RobotList
+    robot_alignment: X+
+    start_position: [ -3.5, 0.0, 0.0 ]
+    simulator_project: [ AGXSimulator, AISTSimulator ]
+    view_project: M3/RefereeView
+    enable_recording: false
+    # enable_tracking: true
+    enable_ros: false

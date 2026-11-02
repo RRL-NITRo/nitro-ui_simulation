@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="imax_manipulator">
+    <xacro:arg name="initial_positions_file" default="initial_positions.yaml" />
+
+    <!-- Import imax_manipulator urdf file -->
+    <xacro:include filename="$(find nitro_description)/xacro/imax_manipulator.urdf" />
+
+    <!-- Import control_xacro -->
+    <xacro:include filename="imax_manipulator.ros2_control.xacro" />
+
+
+    <xacro:imax_manipulator_ros2_control name="FakeSystem" initial_positions_file="$(arg initial_positions_file)"/>
+
+</robot>

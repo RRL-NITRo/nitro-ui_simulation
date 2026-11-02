@@ -1,0 +1,2874 @@
+format: ChoreonoidBody
+format_version: 2.0
+angle_unit: degree
+name: "nitroman"
+root_link: "base_footprint"
+links:
+  -
+    name: "base_footprint"
+    joint_name: "base_footprint"
+    joint_type: free
+    mass: 1
+    center_of_mass: [ 0, 0, 0 ]
+    inertia: [
+      1, 0, 0,
+      0, 1, 0,
+      0, 0, 1 ]
+  -
+    name: "base_link"
+    parent: "base_footprint"
+    translation: [ 0, 0, 0.088 ]
+    joint_name: "plane2base"
+    joint_type: fixed
+    mass: 1
+    center_of_mass: [ 0, 0, 0 ]
+    inertia: [
+      1, 0, 0,
+      0, 1, 0,
+      0, 0, 1 ]
+
+  -
+    name: TRACK_L
+    parent: left_wheel_base
+    translation: [ 0, 0, 0 ]
+    jointType: fixed
+    centerOfMass: [ 0, 0, 0 ]
+    mass: 10.0
+    inertia: [
+      0.02, 0,    0,
+      0,    0.02, 0,
+      0,    0,    0.02 ]
+    elements:
+      -
+        type: AGXVehicleContinuousTrackDevice
+        name: TRACK_L
+        sprocketNames: [ left_wheel_front ]
+        rollerNames: [ left_wheel_center ]
+        idlerNames: [ left_wheel_back ]
+        upAxis: [ 0, 0, 1 ]
+        numberOfNodes: 43
+        nodeThickness: 0.007
+        nodeWidth:  0.1
+        nodeThickerThickness: 0.017
+        useThickerNodeEvery: 2
+        material: WRSCommonTracks
+        nodeDistanceTension: 6.0e-4
+        stabilizingHingeFrictionParameter: 1e-6
+        minStabilizingHingeNormalForce: 80
+        hingeCompliance: 9.0e-10
+        hingeSpookDamping: 0.01
+        nodesToWheelsMergeThreshold: -0.01
+        nodesToWheelsSplitThreshold: -0.009
+        enableMerge: true
+        # numNodesPerMergeSegment: 3
+        # contactReduction: 3
+        # enableLockToReachMergeCondition: true
+        # lockToReachMergeConditionCompliance: 0.1
+        # lockToReachMergeConditionSpookDamping: 0.01
+        # maxAngleMergeCondition: 1.0e-5
+        nodeShape: &NODE_SHAPE
+          appearance:
+            material:
+              diffuseColor: [ 0.15, 0.15, 0.15 ]
+              specularColor: [ 0.8, 0.8, 0.8 ]
+              shininess: 0.02
+  -
+    name: TRACK_R
+    parent: right_wheel_base
+    translation: [ 0, 0, 0 ]
+    jointType: fixed
+    centerOfMass: [ 0, 0, 0 ]
+    mass: 10.0
+    inertia: [
+      0.02, 0,    0,
+      0,    0.02, 0,
+      0,    0,    0.02 ]
+    elements:
+      -
+        type: AGXVehicleContinuousTrackDevice
+        name: TRACK_R
+        sprocketNames: [ right_wheel_front ]
+        rollerNames: [ right_wheel_center ]
+        idlerNames: [ right_wheel_back ]
+        upAxis: [ 0, 0, 1 ]
+        numberOfNodes: 43
+        nodeThickness: 0.007
+        nodeWidth:  0.1
+        nodeThickerThickness: 0.017
+        useThickerNodeEvery: 2
+        material: WRSCommonTracks
+        nodeDistanceTension: 6.0e-4
+        stabilizingHingeFrictionParameter: 1e-6
+        minStabilizingHingeNormalForce: 80
+        hingeCompliance: 9.0e-10
+        hingeSpookDamping: 0.01
+        nodesToWheelsMergeThreshold: -0.01
+        nodesToWheelsSplitThreshold: -0.009
+        enableMerge: true
+        nodeShape: *NODE_SHAPE
+  -
+    name: TRACK_L_FRONT
+    parent: left_front_wheel_base
+    translation: [ 0, 0, 0 ]
+    jointType: fixed
+    centerOfMass: [ 0, 0, 0 ]
+    mass: 5.0
+    inertia: [
+      0.02, 0,    0,
+      0,    0.02, 0,
+      0,    0,    0.02 ]
+    elements:
+      -
+        type: AGXVehicleContinuousTrackDevice
+        name: TRACK_L_FRONT
+        sprocketNames: [ left_front_wheel_front ]
+        rollerNames: [ left_front_wheel_center ]
+        idlerNames: [ left_front_wheel_back ]
+        upAxis: [ 0, 0, 1 ]
+        numberOfNodes: 28
+        nodeThickness: 0.007
+        nodeWidth:  0.025
+        nodeThickerThickness: 0.017
+        useThickerNodeEvery: 2
+        material: WRSCommonTracks
+        nodeDistanceTension: 8.0e-4
+        stabilizingHingeFrictionParameter: 1e-7
+        minStabilizingHingeNormalForce: 80
+        hingeCompliance: 9.0e-10
+        hingeSpookDamping: 0.01
+        nodesToWheelsMergeThreshold: -0.1
+        nodesToWheelsSplitThreshold: 0.001
+        enableMerge: true
+        nodeShape: *NODE_SHAPE
+  -
+      name: TRACK_R_FRONT
+      parent: right_front_wheel_base
+      translation: [ 0, 0, 0 ]
+      jointType: fixed
+      centerOfMass: [ 0, 0, 0 ]
+      mass: 5.0
+      inertia: [
+        0.02, 0,    0,
+        0,    0.02, 0,
+        0,    0,    0.02 ]
+      elements:
+        -
+          type: AGXVehicleContinuousTrackDevice
+          name: TRACK_R_FRONT
+          sprocketNames: [ right_front_wheel_front ]
+          rollerNames: [ right_front_wheel_center ]
+          idlerNames: [ right_front_wheel_back ]
+          upAxis: [ 0, 0, 1 ]
+          numberOfNodes: 28
+          nodeThickness: 0.007
+          nodeWidth:  0.025
+          nodeThickerThickness: 0.017
+          useThickerNodeEvery: 2
+          material: WRSCommonTracks
+          nodeDistanceTension: 8.0e-4
+          stabilizingHingeFrictionParameter: 1e-7
+          minStabilizingHingeNormalForce: 80
+          hingeCompliance: 9.0e-10
+          hingeSpookDamping: 0.01
+          nodesToWheelsMergeThreshold: -0.1
+          nodesToWheelsSplitThreshold: 0.001
+          enableMerge: true
+          nodeShape: *NODE_SHAPE
+
+  -
+      name: TRACK_L_REAR
+      parent: left_rear_wheel_base
+      translation: [ 0, 0, 0 ]
+      jointType: fixed
+      centerOfMass: [ 0, 0, 0 ]
+      mass: 5.0
+      inertia: [
+        0.02, 0,    0,
+        0,    0.02, 0,
+        0,    0,    0.02 ]
+      elements:
+        -
+          type: AGXVehicleContinuousTrackDevice
+          name: TRACK_L_REAR
+          sprocketNames: [ left_rear_wheel_front ]
+          rollerNames: [ left_rear_wheel_center ]
+          idlerNames: [ left_rear_wheel_back ]
+          upAxis: [ 0, 0, 1 ]
+          numberOfNodes: 28
+          nodeThickness: 0.007
+          nodeWidth:  0.025
+          nodeThickerThickness: 0.017
+          useThickerNodeEvery: 2
+          material: WRSCommonTracks
+          nodeDistanceTension: 8.0e-4
+          stabilizingHingeFrictionParameter: 1e-7
+          minStabilizingHingeNormalForce: 80
+          hingeCompliance: 9.0e-10
+          hingeSpookDamping: 0.01
+          nodesToWheelsMergeThreshold: -0.1
+          nodesToWheelsSplitThreshold: 0.001
+          enableMerge: true
+          nodeShape: *NODE_SHAPE
+  -
+      name: TRACK_R_REAR
+      parent: right_rear_wheel_base
+      translation: [ 0, 0, 0 ]
+      jointType: fixed
+      centerOfMass: [ 0, 0, 0 ]
+      mass: 5.0
+      inertia: [
+        0.02, 0,    0,
+        0,    0.02, 0,
+        0,    0,    0.02 ]
+      elements:
+        -
+          type: AGXVehicleContinuousTrackDevice
+          name: TRACK_R_REAR
+          sprocketNames: [ right_rear_wheel_front ]
+          rollerNames: [ right_rear_wheel_center ]
+          idlerNames: [ right_rear_wheel_back ]
+          upAxis: [ 0, 0, 1 ]
+          numberOfNodes: 28
+          nodeThickness: 0.007
+          nodeWidth:  0.025
+          nodeThickerThickness: 0.017
+          useThickerNodeEvery: 2
+          material: WRSCommonTracks
+          nodeDistanceTension: 8.0e-4
+          stabilizingHingeFrictionParameter: 1e-7
+          minStabilizingHingeNormalForce: 80
+          hingeCompliance: 9.0e-10
+          hingeSpookDamping: 0.01
+          nodesToWheelsMergeThreshold: -0.1
+          nodesToWheelsSplitThreshold: 0.05
+          enableMerge: true
+          nodeShape: *NODE_SHAPE
+              
+  -
+    name: "left_wheel_base"
+    parent: "main_body"
+    translation: [ 0, 0.122, 0 ]
+    joint_name: "left_wheel_base_joint"
+    joint_type: fixed
+    mass: 1
+    center_of_mass: [ 0, 0, 0 ]
+    inertia: [
+      1, 0, 0,
+      0, 1, 0,
+      0, 0, 1 ]
+  -
+    name: "left_wheel_front"
+    parent: "left_wheel_base"
+    translation: [ 0.225, 0, 0 ]
+    joint_name: "left_wheel_front_joint"
+    joint_type: revolute
+    joint_axis: [ 0, 1, 0 ]
+    joint_id: 0
+    joint_range: [ -1e100, 1e100 ]
+    max_joint_velocity: 5729.58
+    max_joint_effort: 1000
+    mass: 3.69671
+    center_of_mass: [ 0, 0, 0 ]
+    inertia: [
+      0.00929477, 0, 0,
+      0, 0.00929477, 0,
+      0, 0, 0.0124283 ]
+    material: WRSCommonWheel
+    elements:
+      -
+        type: Transform
+        rotation: [ 1, 0, 0, 90 ]
+        elements:
+          -
+            type: Transform
+            rotation: [ 1, 0, 0, 90 ]
+            elements:
+              -
+                type: Shape
+                geometry:
+                  type: Cylinder
+                  radius: 0.068
+                  height: 0.1
+  -
+    name: "left_wheel_center_connector"
+    parent: "left_wheel_base"
+    translation: [ 0.225, 0.075, 0 ]
+    joint_name: "left_wheel_center_connector_joint"
+    joint_type: fixed
+    mass: 0.1
+    center_of_mass: [ 0, 0, 0 ]
+    inertia: [
+      0.0001, 0, 0,
+      0, 0.0001, 0,
+      0, 0, 0.0001 ]
+    elements:
+      -
+        type: Transform
+        rotation: [ 1, 0, 0, 90 ]
+        elements:
+          -
+            type: Transform
+            rotation: [ 1, 0, 0, 90 ]
+            elements:
+              -
+                type: Shape
+                geometry:
+                  type: Cylinder
+                  radius: 0.017
+                  height: 0.06
+  -
+    name: "left_wheel_center"
+    parent: "left_wheel_base"
+    joint_name: "left_wheel_center_joint"
+    joint_type: revolute
+    joint_axis: [ 0, 1, 0 ]
+    joint_id: 1
+    joint_range: [ -1e100, 1e100 ]
+    max_joint_velocity: 5729.58
+    max_joint_effort: 1000
+    mass: 3.69671
+    center_of_mass: [ 0, 0, 0 ]
+    inertia: [
+      0.00929477, 0, 0,
+      0, 0.00929477, 0,
+      0, 0, 0.0124283 ]
+    material: WRSCommonWheel
+    elements:
+      -
+        type: Transform
+        rotation: [ 1, 0, 0, 90 ]
+        elements:
+          -
+            type: Transform
+            rotation: [ 1, 0, 0, 90 ]
+            elements:
+              -
+                type: Shape
+                geometry:
+                  type: Cylinder
+                  radius: 0.068
+                  height: 0.1
+  -
+    name: "left_wheel_back"
+    parent: "left_wheel_base"
+    translation: [ -0.225, 0, 0 ]
+    joint_name: "left_wheel_back_joint"
+    joint_type: revolute
+    joint_axis: [ 0, 1, 0 ]
+    joint_id: 2
+    joint_range: [ -1e100, 1e100 ]
+    max_joint_velocity: 5729.58
+    max_joint_effort: 1000
+    mass: 3.69671
+    center_of_mass: [ 0, 0, 0 ]
+    inertia: [
+      0.00929477, 0, 0,
+      0, 0.00929477, 0,
+      0, 0, 0.0124283 ]
+    material: WRSCommonWheel
+    elements:
+      -
+        type: Transform
+        rotation: [ 1, 0, 0, 90 ]
+        elements:
+          -
+            type: Transform
+            rotation: [ 1, 0, 0, 90 ]
+            elements:
+              -
+                type: Shape
+                geometry:
+                  type: Cylinder
+                  radius: 0.068
+                  height: 0.1
+  -
+    name: "left_wheel_back_connector"
+    parent: "left_wheel_base"
+    translation: [ -0.225, 0.075, 0 ]
+    joint_name: "left_wheel_back_connector_joint"
+    joint_type: fixed
+    mass: 0.1
+    center_of_mass: [ 0, 0, 0 ]
+    inertia: [
+      0.0001, 0, 0,
+      0, 0.0001, 0,
+      0, 0, 0.0001 ]
+    elements:
+      -
+        type: Transform
+        rotation: [ 1, 0, 0, 90 ]
+        elements:
+          -
+            type: Transform
+            rotation: [ 1, 0, 0, 90 ]
+            elements:
+              -
+                type: Shape
+                geometry:
+                  type: Cylinder
+                  radius: 0.017
+                  height: 0.06
+  -
+    name: "right_wheel_base"
+    parent: "main_body"
+    translation: [ 0, -0.122, 0 ]
+    joint_name: "right_wheel_base_joint"
+    joint_type: fixed
+    mass: 1
+    center_of_mass: [ 0, 0, 0 ]
+    inertia: [
+      1, 0, 0,
+      0, 1, 0,
+      0, 0, 1 ]
+  -
+    name: "right_wheel_front"
+    parent: "right_wheel_base"
+    translation: [ 0.225, 0, 0 ]
+    joint_name: "right_wheel_front_joint"
+    joint_type: revolute
+    joint_axis: [ 0, 1, 0 ]
+    joint_id: 3
+    joint_range: [ -1e100, 1e100 ]
+    max_joint_velocity: 5729.58
+    max_joint_effort: 1000
+    mass: 3.69671
+    center_of_mass: [ 0, 0, 0 ]
+    material: WRSCommonWheel
+    inertia: [
+      0.00929477, 0, 0,
+      0, 0.00929477, 0,
+      0, 0, 0.0124283 ]
+    elements:
+      -
+        type: Transform
+        rotation: [ 1, 0, 0, 90 ]
+        elements:
+          -
+            type: Transform
+            rotation: [ 1, 0, 0, 90 ]
+            elements:
+              -
+                type: Shape
+                geometry:
+                  type: Cylinder
+                  radius: 0.068
+                  height: 0.1
+  -
+    name: "right_wheel_front_connector"
+    parent: "right_wheel_base"
+    translation: [ 0.225, -0.075, 0 ]
+    joint_name: "right_wheel_front_connector_joint"
+    joint_type: fixed
+    mass: 0.1
+    center_of_mass: [ 0, 0, 0 ]
+    inertia: [
+      0.0001, 0, 0,
+      0, 0.0001, 0,
+      0, 0, 0.0001 ]
+    elements:
+      -
+        type: Transform
+        rotation: [ 1, 0, 0, 90 ]
+        elements:
+          -
+            type: Transform
+            rotation: [ 1, 0, 0, 90 ]
+            elements:
+              -
+                type: Shape
+                geometry:
+                  type: Cylinder
+                  radius: 0.017
+                  height: 0.06
+  -
+    name: "right_wheel_center"
+    parent: "right_wheel_base"
+    joint_name: "right_wheel_center_joint"
+    joint_type: revolute
+    joint_axis: [ 0, 1, 0 ]
+    joint_id: 4
+    joint_range: [ -1e100, 1e100 ]
+    max_joint_velocity: 5729.58
+    max_joint_effort: 1000
+    mass: 3.69671
+    center_of_mass: [ 0, 0, 0 ]
+    inertia: [
+      0.00929477, 0, 0,
+      0, 0.00929477, 0,
+      0, 0, 0.0124283 ]
+    material: WRSCommonWheel
+    elements:
+      -
+        type: Transform
+        rotation: [ 1, 0, 0, 90 ]
+        elements:
+          -
+            type: Transform
+            rotation: [ 1, 0, 0, 90 ]
+            elements:
+              -
+                type: Shape
+                geometry:
+                  type: Cylinder
+                  radius: 0.068
+                  height: 0.1
+  -
+    name: "right_wheel_back"
+    parent: "right_wheel_base"
+    translation: [ -0.225, 0, 0 ]
+    joint_name: "right_wheel_back_joint"
+    joint_type: revolute
+    joint_axis: [ 0, 1, 0 ]
+    joint_id: 5
+    joint_range: [ -1e100, 1e100 ]
+    max_joint_velocity: 5729.58
+    max_joint_effort: 1000
+    mass: 3.69671
+    center_of_mass: [ 0, 0, 0 ]
+    inertia: [
+      0.00929477, 0, 0,
+      0, 0.00929477, 0,
+      0, 0, 0.0124283 ]
+    material: WRSCommonWheel
+    elements:
+      -
+        type: Transform
+        rotation: [ 1, 0, 0, 90 ]
+        elements:
+          -
+            type: Transform
+            rotation: [ 1, 0, 0, 90 ]
+            elements:
+              -
+                type: Shape
+                geometry:
+                  type: Cylinder
+                  radius: 0.068
+                  height: 0.1
+  -
+    name: "right_wheel_back_connector"
+    parent: "right_wheel_base"
+    translation: [ -0.225, -0.075, 0 ]
+    joint_name: "right_wheel_back_connector_joint"
+    joint_type: fixed
+    mass: 0.1
+    center_of_mass: [ 0, 0, 0 ]
+    inertia: [
+      0.0001, 0, 0,
+      0, 0.0001, 0,
+      0, 0, 0.0001 ]
+    elements:
+      -
+        type: Transform
+        rotation: [ 1, 0, 0, 90 ]
+        elements:
+          -
+            type: Transform
+            rotation: [ 1, 0, 0, 90 ]
+            elements:
+              -
+                type: Shape
+                geometry:
+                  type: Cylinder
+                  radius: 0.017
+                  height: 0.06
+  -
+    name: "left_front"
+    parent: "main_body"
+    translation: [ 0.225, 0.184, 0 ]
+    rotation: [ 6.12323e-17, 1, 6.12323e-17, 180 ]
+    joint_name: "joint_left_front"
+    joint_type: revolute
+    joint_axis: [ 0, 1, 0 ]
+    joint_id: 6
+    joint_range: [ -180, 180 ]
+    max_joint_velocity: 57.2958
+    max_joint_effort: 10000
+    mass: 1
+    center_of_mass: [ 0, 0, 0 ]
+    inertia: [
+      1, 0, 0,
+      0, 1, 0,
+      0, 0, 1 ]
+    material: TankWheel
+    elements:
+      -
+        type: Visual
+        elements:
+          -
+            type: Transform
+            scale: [ 0.001, 0.001, 0.001 ]
+            elements:
+              - &A0
+                type: Shape
+                appearance:
+                  material:
+                    diffuse: [ 0.6, 0.6, 0.6 ]
+  -
+    name: "left_front_wheel_base"
+    parent: "left_front"
+    translation: [ -0.145, 0.048, 0 ]
+    joint_name: "left_front_wheel_base_joint"
+    joint_type: fixed
+    mass: 1
+    center_of_mass: [ 0, 0, 0 ]
+    inertia: [
+      1, 0, 0,
+      0, 1, 0,
+      0, 0, 1 ]
+    elements:
+      -
+        type: Transform
+        translation: [ 0, 0.026, -0.02 ]
+        elements:
+          -
+            type: Shape
+            appearance:
+              material:
+                diffuse: [ 0.6, 0.6, 0.6 ]
+            geometry:
+              type: Box
+              size: [ 0.29, 0.005, 0.125 ]
+  -
+    name: "left_front_wheel_front"
+    parent: "left_front_wheel_base"
+    translation: [ 0.145, 0, 0 ]
+    joint_name: "left_front_wheel_front_joint"
+    joint_type: revolute
+    joint_axis: [ 0, 1, 0 ]
+    joint_id: 7
+    joint_range: [ -1e100, 1e100 ]
+    max_joint_velocity: 5729.58
+    max_joint_effort: 1000
+    mass: 0.924178
+    center_of_mass: [ 0, 0, 0 ]
+    inertia: [
+      0.00160168, 0, 0,
+      0, 0.00160168, 0,
+      0, 0, 0.00310709 ]
+    material: WRSCommonWheel
+    elements:
+      -
+        type: Transform
+        rotation: [ 1, 0, 0, 90 ]
+        elements:
+          -
+            type: Transform
+            rotation: [ 1, 0, 0, 90 ]
+            elements:
+              -
+                type: Shape
+                geometry:
+                  type: Cylinder
+                  radius: 0.068
+                  height: 0.025
+  -
+    name: "left_front_wheel_center"
+    parent: "left_front_wheel_base"
+    joint_name: "left_front_wheel_center_joint"
+    joint_type: revolute
+    joint_axis: [ 0, 1, 0 ]
+    joint_id: 8
+    joint_range: [ -1e100, 1e100 ]
+    max_joint_velocity: 5729.58
+    max_joint_effort: 1000
+    mass: 0.924178
+    center_of_mass: [ 0, 0, 0 ]
+    inertia: [
+      0.00160168, 0, 0,
+      0, 0.00160168, 0,
+      0, 0, 0.00310709 ]
+    material: WRSCommonWheel
+    elements:
+      -
+        type: Transform
+        rotation: [ 1, 0, 0, 90 ]
+        elements:
+          -
+            type: Transform
+            rotation: [ 1, 0, 0, 90 ]
+            elements:
+              -
+                type: Shape
+                geometry:
+                  type: Cylinder
+                  radius: 0.068
+                  height: 0.025
+  -
+    name: "left_front_wheel_back"
+    parent: "left_front_wheel_base"
+    translation: [ -0.145, 0, 0 ]
+    joint_name: "left_front_wheel_back_joint"
+    joint_type: revolute
+    joint_axis: [ 0, 1, 0 ]
+    joint_id: 9
+    joint_range: [ -1e100, 1e100 ]
+    max_joint_velocity: 5729.58
+    max_joint_effort: 1000
+    mass: 0.924178
+    center_of_mass: [ 0, 0, 0 ]
+    inertia: [
+      0.00160168, 0, 0,
+      0, 0.00160168, 0,
+      0, 0, 0.00310709 ]
+    material: WRSCommonWheel
+    elements:
+      -
+        type: Transform
+        rotation: [ 1, 0, 0, 90 ]
+        elements:
+          -
+            type: Transform
+            rotation: [ 1, 0, 0, 90 ]
+            elements:
+              -
+                type: Shape
+                geometry:
+                  type: Cylinder
+                  radius: 0.068
+                  height: 0.025
+  -
+    name: "left_rear"
+    parent: "main_body"
+    translation: [ -0.225, 0.184, 0 ]
+    rotation: [ -0.57735, -0.57735, -0.57735, 1.21533e-14 ]
+    joint_name: "joint_left_rear"
+    joint_type: revolute
+    joint_axis: [ 0, -1, 0 ]
+    joint_id: 10
+    joint_range: [ -180, 180 ]
+    max_joint_velocity: 57.2958
+    max_joint_effort: 10000
+    mass: 1
+    center_of_mass: [ 0, 0, 0 ]
+    inertia: [
+      1, 0, 0,
+      0, 1, 0,
+      0, 0, 1 ]
+    elements:
+      -
+        type: Visual
+        elements:
+          -
+            type: Transform
+            scale: [ 0.001, 0.001, 0.001 ]
+            elements:
+              - *A0
+  -
+    name: "left_rear_wheel_base"
+    parent: "left_rear"
+    translation: [ -0.145, 0.048, 0 ]
+    joint_name: "left_rear_wheel_base_joint"
+    joint_type: fixed
+    mass: 1
+    center_of_mass: [ 0, 0, 0 ]
+    inertia: [
+      1, 0, 0,
+      0, 1, 0,
+      0, 0, 1 ]
+    elements:
+      -
+        type: Transform
+        translation: [ 0, 0.026, 0.02 ]
+        elements:
+          -
+            type: Shape
+            appearance:
+              material:
+                diffuse: [ 0.6, 0.6, 0.6 ]
+            geometry:
+              type: Box
+              size: [ 0.29, 0.005, 0.125 ]
+  -
+    name: "left_rear_wheel_front"
+    parent: "left_rear_wheel_base"
+    translation: [ 0.145, 0, 0 ]
+    joint_name: "left_rear_wheel_front_joint"
+    joint_type: revolute
+    joint_axis: [ 0, 1, 0 ]
+    joint_id: 11
+    joint_range: [ -1e100, 1e100 ]
+    max_joint_velocity: 5729.58
+    max_joint_effort: 1000
+    mass: 0.924178
+    center_of_mass: [ 0, 0, 0 ]
+    inertia: [
+      0.00160168, 0, 0,
+      0, 0.00160168, 0,
+      0, 0, 0.00310709 ]
+    material: WRSCommonWheel
+    elements:
+      -
+        type: Transform
+        rotation: [ 1, 0, 0, 90 ]
+        elements:
+          -
+            type: Transform
+            rotation: [ 1, 0, 0, 90 ]
+            elements:
+              -
+                type: Shape
+                geometry:
+                  type: Cylinder
+                  radius: 0.068
+                  height: 0.025
+  -
+    name: "left_rear_wheel_center"
+    parent: "left_rear_wheel_base"
+    joint_name: "left_rear_wheel_center_joint"
+    joint_type: revolute
+    joint_axis: [ 0, 1, 0 ]
+    joint_id: 12
+    joint_range: [ -1e100, 1e100 ]
+    max_joint_velocity: 5729.58
+    max_joint_effort: 1000
+    mass: 0.924178
+    center_of_mass: [ 0, 0, 0 ]
+    inertia: [
+      0.00160168, 0, 0,
+      0, 0.00160168, 0,
+      0, 0, 0.00310709 ]
+    material: WRSCommonWheel
+    elements:
+      -
+        type: Transform
+        rotation: [ 1, 0, 0, 90 ]
+        elements:
+          -
+            type: Transform
+            rotation: [ 1, 0, 0, 90 ]
+            elements:
+              -
+                type: Shape
+                geometry:
+                  type: Cylinder
+                  radius: 0.068
+                  height: 0.025
+  -
+    name: "left_rear_wheel_back"
+    parent: "left_rear_wheel_base"
+    translation: [ -0.145, 0, 0 ]
+    joint_name: "left_rear_wheel_back_joint"
+    joint_type: revolute
+    joint_axis: [ 0, 1, 0 ]
+    joint_id: 13
+    joint_range: [ -1e100, 1e100 ]
+    max_joint_velocity: 5729.58
+    max_joint_effort: 1000
+    mass: 0.924178
+    center_of_mass: [ 0, 0, 0 ]
+    inertia: [
+      0.00160168, 0, 0,
+      0, 0.00160168, 0,
+      0, 0, 0.00310709 ]
+    material: WRSCommonWheel
+    elements:
+      -
+        type: Transform
+        rotation: [ 1, 0, 0, 90 ]
+        elements:
+          -
+            type: Transform
+            rotation: [ 1, 0, 0, 90 ]
+            elements:
+              -
+                type: Shape
+                geometry:
+                  type: Cylinder
+                  radius: 0.068
+                  height: 0.025
+  -
+    name: "right_front"
+    parent: "main_body"
+    translation: [ 0.225, -0.184, 0 ]
+    rotation: [ 0, 0, 1, 180 ]
+    joint_name: "joint_right_front"
+    joint_type: revolute
+    joint_axis: [ 0, -1, 0 ]
+    joint_id: 14
+    joint_range: [ -180, 180 ]
+    max_joint_velocity: 57.2958
+    max_joint_effort: 10000
+    mass: 1
+    center_of_mass: [ 0, 0, 0 ]
+    inertia: [
+      1, 0, 0,
+      0, 1, 0,
+      0, 0, 1 ]
+    elements:
+      -
+        type: Visual
+        elements:
+          -
+            type: Transform
+            scale: [ 0.001, 0.001, 0.001 ]
+            elements:
+              - *A0
+  -
+    name: "right_front_wheel_base"
+    parent: "right_front"
+    translation: [ -0.145, 0.048, 0 ]
+    joint_name: "right_front_wheel_base_joint"
+    joint_type: fixed
+    mass: 1
+    center_of_mass: [ 0, 0, 0 ]
+    inertia: [
+      1, 0, 0,
+      0, 1, 0,
+      0, 0, 1 ]
+    elements:
+      -
+        type: Transform
+        translation: [ 0, 0.026, 0.02 ]
+        elements:
+          -
+            type: Shape
+            appearance:
+              material:
+                diffuse: [ 0.6, 0.6, 0.6 ]
+            geometry:
+              type: Box
+              size: [ 0.29, 0.005, 0.125 ]
+  -
+    name: "right_front_wheel_front"
+    parent: "right_front_wheel_base"
+    translation: [ 0.145, 0, 0 ]
+    joint_name: "right_front_wheel_front_joint"
+    joint_type: revolute
+    joint_axis: [ 0, -1, 0 ]
+    joint_id: 15
+    joint_range: [ -1e100, 1e100 ]
+    max_joint_velocity: 5729.58
+    max_joint_effort: 1000
+    mass: 0.924178
+    center_of_mass: [ 0, 0, 0 ]
+    inertia: [
+      0.00160168, 0, 0,
+      0, 0.00160168, 0,
+      0, 0, 0.00310709 ]
+    material: WRSCommonWheel
+    elements:
+      -
+        type: Transform
+        rotation: [ 1, 0, 0, 90 ]
+        elements:
+          -
+            type: Transform
+            rotation: [ 1, 0, 0, 90 ]
+            elements:
+              -
+                type: Shape
+                geometry:
+                  type: Cylinder
+                  radius: 0.068
+                  height: 0.025
+  -
+    name: "right_front_wheel_center"
+    parent: "right_front_wheel_base"
+    joint_name: "right_front_wheel_center_joint"
+    joint_type: revolute
+    joint_axis: [ 0, -1, 0 ]
+    joint_id: 16
+    joint_range: [ -1e100, 1e100 ]
+    max_joint_velocity: 5729.58
+    max_joint_effort: 1000
+    mass: 0.924178
+    center_of_mass: [ 0, 0, 0 ]
+    inertia: [
+      0.00160168, 0, 0,
+      0, 0.00160168, 0,
+      0, 0, 0.00310709 ]
+    material: WRSCommonWheel
+    elements:
+      -
+        type: Transform
+        rotation: [ 1, 0, 0, 90 ]
+        elements:
+          -
+            type: Transform
+            rotation: [ 1, 0, 0, 90 ]
+            elements:
+              -
+                type: Shape
+                geometry:
+                  type: Cylinder
+                  radius: 0.068
+                  height: 0.025
+  -
+    name: "right_front_wheel_back"
+    parent: "right_front_wheel_base"
+    translation: [ -0.145, 0, 0 ]
+    joint_name: "right_front_wheel_back_joint"
+    joint_type: revolute
+    joint_axis: [ 0, -1, 0 ]
+    joint_id: 17
+    joint_range: [ -1e100, 1e100 ]
+    max_joint_velocity: 5729.58
+    max_joint_effort: 1000
+    mass: 0.924178
+    center_of_mass: [ 0, 0, 0 ]
+    inertia: [
+      0.00160168, 0, 0,
+      0, 0.00160168, 0,
+      0, 0, 0.00310709 ]
+    material: WRSCommonWheel
+    elements:
+      -
+        type: Transform
+        rotation: [ 1, 0, 0, 90 ]
+        elements:
+          -
+            type: Transform
+            rotation: [ 1, 0, 0, 90 ]
+            elements:
+              -
+                type: Shape
+                geometry:
+                  type: Cylinder
+                  radius: 0.068
+                  height: 0.025
+  -
+    name: "right_rear"
+    parent: "main_body"
+    translation: [ -0.225, -0.184, 0 ]
+    rotation: [ 1, -6.12323e-17, 6.12323e-17, 180 ]
+    joint_name: "joint_right_rear"
+    joint_type: revolute
+    joint_axis: [ 0, 1, 0 ]
+    joint_id: 18
+    joint_range: [ -180, 180 ]
+    max_joint_velocity: 57.2958
+    max_joint_effort: 10000
+    mass: 1
+    center_of_mass: [ 0, 0, 0 ]
+    inertia: [
+      1, 0, 0,
+      0, 1, 0,
+      0, 0, 1 ]
+    elements:
+      -
+        type: Visual
+        elements:
+          -
+            type: Transform
+            scale: [ 0.001, 0.001, 0.001 ]
+            elements:
+              - *A0
+  -
+    name: "right_rear_wheel_base"
+    parent: "right_rear"
+    translation: [ -0.145, 0.048, 0 ]
+    joint_name: "right_rear_wheel_base_joint"
+    joint_type: fixed
+    mass: 1
+    center_of_mass: [ 0, 0, 0 ]
+    inertia: [
+      1, 0, 0,
+      0, 1, 0,
+      0, 0, 1 ]
+    elements:
+      -
+        type: Transform
+        translation: [ 0, 0.026, -0.02 ]
+        elements:
+          -
+            type: Shape
+            appearance:
+              material:
+                diffuse: [ 0.6, 0.6, 0.6 ]
+            geometry:
+              type: Box
+              size: [ 0.29, 0.005, 0.125 ]
+  -
+    name: "right_rear_wheel_front"
+    parent: "right_rear_wheel_base"
+    translation: [ 0.145, 0, 0 ]
+    joint_name: "right_rear_wheel_front_joint"
+    joint_type: revolute
+    joint_axis: [ 0, -1, 0 ]
+    joint_id: 19
+    joint_range: [ -1e100, 1e100 ]
+    max_joint_velocity: 5729.58
+    max_joint_effort: 1000
+    mass: 0.924178
+    center_of_mass: [ 0, 0, 0 ]
+    inertia: [
+      0.00160168, 0, 0,
+      0, 0.00160168, 0,
+      0, 0, 0.00310709 ]
+    material: WRSCommonWheel
+    elements:
+      -
+        type: Transform
+        rotation: [ 1, 0, 0, 90 ]
+        elements:
+          -
+            type: Transform
+            rotation: [ 1, 0, 0, 90 ]
+            elements:
+              -
+                type: Shape
+                geometry:
+                  type: Cylinder
+                  radius: 0.068
+                  height: 0.025
+  -
+    name: "right_rear_wheel_center"
+    parent: "right_rear_wheel_base"
+    joint_name: "right_rear_wheel_center_joint"
+    joint_type: revolute
+    joint_axis: [ 0, -1, 0 ]
+    joint_id: 20
+    joint_range: [ -1e100, 1e100 ]
+    max_joint_velocity: 5729.58
+    max_joint_effort: 1000
+    mass: 0.924178
+    center_of_mass: [ 0, 0, 0 ]
+    inertia: [
+      0.00160168, 0, 0,
+      0, 0.00160168, 0,
+      0, 0, 0.00310709 ]
+    material: WRSCommonWheel
+    elements:
+      -
+        type: Transform
+        rotation: [ 1, 0, 0, 90 ]
+        elements:
+          -
+            type: Transform
+            rotation: [ 1, 0, 0, 90 ]
+            elements:
+              -
+                type: Shape
+                geometry:
+                  type: Cylinder
+                  radius: 0.068
+                  height: 0.025
+  -
+    name: "right_rear_wheel_back"
+    parent: "right_rear_wheel_base"
+    translation: [ -0.145, 0, 0 ]
+    joint_name: "right_rear_wheel_back_joint"
+    joint_type: revolute
+    joint_axis: [ 0, -1, 0 ]
+    joint_id: 21
+    joint_range: [ -1e100, 1e100 ]
+    max_joint_velocity: 5729.58
+    max_joint_effort: 1000
+    mass: 0.924178
+    center_of_mass: [ 0, 0, 0 ]
+    inertia: [
+      0.00160168, 0, 0,
+      0, 0.00160168, 0,
+      0, 0, 0.00310709 ]
+    material: WRSCommonWheel
+    elements:
+      -
+        type: Transform
+        rotation: [ 1, 0, 0, 90 ]
+        elements:
+          -
+            type: Transform
+            rotation: [ 1, 0, 0, 90 ]
+            elements:
+              -
+                type: Shape
+                geometry:
+                  type: Cylinder
+                  radius: 0.068
+                  height: 0.025
+
+  -
+    name: "main_body"
+    parent: "base_link"
+    joint_name: "2main_body"
+    joint_type: fixed
+    mass: 1
+    center_of_mass: [ 0, 0, 0 ]
+    inertia: [
+      1, 0, 0,
+      0, 1, 0,
+      0, 0, 1 ]
+  -
+    name: "body_base"
+    parent: "main_body"
+    translation: [ 0.2, 0, 0.15 ]
+    joint_name: "base2body_base"
+    joint_type: fixed
+    mass: 1
+    center_of_mass: [ 0, 0, 0 ]
+    inertia: [
+      1, 0, 0,
+      0, 1, 0,
+      0, 0, 1 ]
+    elements:
+      -
+        type: Transform
+        translation: [ -0.2, 0, -0.095 ]
+        elements:
+          -
+            type: Shape
+            geometry:
+              type: Box
+              size: [ 0.55, 0.145, 0.05 ]
+            appearance:
+              material:
+                diffuse: [ 0.05, 0.5, 0.5 ]
+  -
+    name: "body_link_base"
+    parent: "body_base"
+    joint_name: "body_link_base_joint"
+    joint_type: fixed
+    mass: 0.5
+    center_of_mass: [ 0, 0, 0 ]
+    inertia: [
+      0.001, 0, 0,
+      0, 0.001, 0,
+      0, 0, 0.001 ]
+    elements:
+      -
+        type: Visual
+        elements:
+          -
+            type: Transform
+            rotation: [ 1, 0, 0, 89.9543738355 ]
+            elements:
+              -
+                type: Transform
+                scale: [ 0.001, 0.001, 0.001 ]
+                elements:
+                  -
+                    type: Shape
+                    appearance:
+                      material:
+                        diffuse: [ 0.05, 0.5, 0.5 ]
+                    geometry:
+                      type: Resource
+                      uri: "package://nitro_description/meshes/man/STL/arm_base.stl"
+  -
+    name: "body_link_yaw"
+    parent: "body_link_base"
+    translation: [ 0, 0, 0.033 ]
+    joint_name: "body_link_yaw_joint"
+    joint_type: revolute
+    joint_axis: [ 0, 0, 1 ]
+    joint_id: 22
+    joint_range: [ -180, 180 ]
+    max_joint_velocity: 4924.21
+    max_joint_effort: 100
+    mass: 1.5
+    center_of_mass: [ 0, 0, 0 ]
+    inertia: [
+      0.0666, 0, 0,
+      0, 0.0024166, 0,
+      0, 0, 0.0024166 ]
+    elements:
+      -
+        type: Visual
+        elements:
+          -
+            type: Transform
+            rotation: [ 0.577503461344, 0.577043762874, 0.577503461344, 119.947308453 ]
+            elements:
+              -
+                type: Transform
+                scale: [ 0.001, 0.001, 0.001 ]
+                elements:
+                  -
+                    type: Shape
+                    appearance:
+                      material:
+                        diffuse: [ 0.05, 0.5, 0.5 ]
+                    geometry:
+                      type: Resource
+                      uri: "package://nitro_description/meshes/man/STL/yaw_link.stl"
+      -
+        type: Collision
+        elements:
+          -
+            type: Transform
+            rotation: [ 1, 0, 0, 89.9543738355 ]
+            elements:
+              -
+                type: Transform
+                rotation: [ 1, 0, 0, 90 ]
+                elements:
+                  -
+                    type: Shape
+                    geometry:
+                      type: Cylinder
+                      radius: 0.01
+                      height: 0.001
+  -
+    name: "body_link_first_link"
+    parent: "body_link_yaw"
+    translation: [ 0, 0, 0.033 ]
+    joint_name: "body_first_link_joint"
+    joint_type: revolute
+    joint_axis: [ 0, 1, 0 ]
+    joint_id: 23
+    joint_range: [ 0, 180 ]
+    max_joint_velocity: 4924.21
+    max_joint_effort: 100
+    mass: 1.6
+    center_of_mass: [ -0.2, 0, 0 ]
+    inertia: [
+      0.003213, 0, 0,
+      0, 0.0165, 0,
+      0, 0, 0.019333 ]
+    elements:
+      -
+        type: Transform
+        rotation: [ 1, 0, 0, 179.999962552 ]
+        translation: [ -0.1, 0, 0 ]
+        elements:
+          -
+            type: Shape
+            appearance:
+              material:
+                diffuse: [ 0.05, 0.5, 0.5 ]
+            geometry:
+              type: Box
+              size: [ 0.2, 0.1, 0.04 ]
+      -
+        type: Transform
+        rotation: [ 1, 0, 0, 89.9543738355 ]
+        translation: [ -0.2, 0, 0 ]
+        elements:
+          -
+            type: Transform
+            rotation: [ 1, 0, 0, 90 ]
+            elements:
+              -
+                type: Shape
+                appearance:
+                  material:
+                    diffuse: [ 0.05, 0.5, 0.5 ]
+                geometry:
+                  type: Cylinder
+                  radius: 0.03
+                  height: 0.12
+  -
+    name: "body_link_second_link"
+    parent: "body_link_first_link"
+    translation: [ -0.2, 0, 0 ]
+    joint_name: "body_second_link_joint"
+    joint_type: revolute
+    joint_axis: [ 0, -1, 0 ]
+    joint_id: 24
+    joint_range: [ 0, 270 ]
+    max_joint_velocity: 4924.21
+    max_joint_effort: 100
+    mass: 1.3
+    center_of_mass: [ 0, 0, 0.0124283 ]
+    inertia: [
+      0.00160168, 0, 0,
+      0, 0.00160168, 0,
+      0, 0, 0.00310709 ]
+    elements:
+      -
+        type: Visual
+        elements:
+          -
+            type: Transform
+            rotation: [ 1, 0, 0, 179.908747671 ]
+            translation: [ 0.1, 0, 0 ]
+            elements:
+              -
+                type: Shape
+                appearance:
+                  material:
+                    diffuse: [ 0.05, 0.5, 0.5 ]
+                geometry:
+                  type: Box
+                  size: [ 0.2, 0.1, 0.04 ]
+      -
+        type: Collision
+        elements:
+          -
+            type: Transform
+            rotation: [ 1, 0, 0, 179.908747671 ]
+            translation: [ 0.1, 0, 0.025 ]
+            elements:
+              -
+                type: Shape
+                geometry:
+                  type: Box
+                  size: [ 0.2, 0.1, 0.04 ]
+  -
+    name: "body_link_third_link"
+    parent: "body_link_second_link"
+    translation: [ 0.2, 0, 0 ]
+    joint_name: "body_third_link_joint"
+    joint_type: revolute
+    joint_axis: [ 0, -1, 0 ]
+    joint_id: 25
+    joint_angle: -90
+    joint_range: [ -89.9544, 89.9544 ]
+    max_joint_velocity: 4924.21
+    max_joint_effort: 100
+    mass: 1.3
+    center_of_mass: [ 0, 0, 0.0124283 ]
+    inertia: [
+      0.00160168, 0, 0,
+      0, 0.00160168, 0,
+      0, 0, 0.00310709 ]
+    elements:
+      -
+        type: Transform
+        rotation: [ 1, 0, 0, 89.9543738355 ]
+        elements:
+          -
+            type: Transform
+            rotation: [ 1, 0, 0, 90 ]
+            elements:
+              -
+                type: Shape
+                appearance:
+                  material:
+                    diffuse: [ 0.05, 0.5, 0.5 ]
+                geometry:
+                  type: Cylinder
+                  radius: 0.04
+                  height: 0.15
+  -
+    name: "head_pitch"
+    parent: "body_link_third_link"
+    translation: [ 0, 0, 0.05 ]
+    joint_name: "head_pitch_joint"
+    joint_type: revolute
+    joint_axis: [ 0, 1, 0 ]
+    joint_id: 26
+    joint_range: [ -89.9544, 89.9544 ]
+    max_joint_velocity: 4924.21
+    max_joint_effort: 100
+    mass: 0.001
+    center_of_mass: [ 0, 0, 0 ]
+    inertia: [
+      1e-05, 0, 0,
+      0, 1e-05, 0,
+      0, 0, 1e-05 ]
+    elements:
+      -
+        type: Shape
+        appearance:
+          material:
+            diffuse: [ 0.05, 0.5, 0.5 ]
+        geometry:
+          type: Box
+          size: [ 0.0001, 0.0001, 0.0001 ]
+  -
+    name: "head_yaw"
+    parent: "head_pitch"
+    translation: [ 0, 0, 0.05 ]
+    joint_name: "head_yaw_joint"
+    joint_type: revolute
+    joint_axis: [ 0, 0, 1 ]
+    joint_id: 27
+    joint_range: [ -89.9544, 89.9544 ]
+    max_joint_velocity: 4924.21
+    max_joint_effort: 100
+    mass: 1
+    center_of_mass: [ 0, 0, 0 ]
+    inertia: [
+      1, 0, 0,
+      0, 1, 0,
+      0, 0, 1 ]
+    elements:
+      -
+        type: Visual
+        elements:
+          -
+            type: Transform
+            rotation: [ 1, 0, 0, 89.9543738355 ]
+            elements:
+              -
+                type: Shape
+                appearance:
+                  material:
+                    diffuse: [ 0.05, 0.5, 0.5 ]
+                geometry:
+                  type: Sphere
+                  radius: 0.06
+          -
+            type: Transform
+            translation: [ 0.02, 0, 0.01 ]
+            elements:
+              -
+                type: Transform
+                rotation: [ 1, 0, 0, 90 ]
+                elements:
+                  -
+                    type: Shape
+                    appearance:
+                      material:
+                        diffuse: [ 0.498, 1, 0.831 ]
+                    geometry:
+                      type: Cylinder
+                      radius: 0.05
+                      height: 0.02
+      -
+        type: Collision
+        elements:
+          -
+            type: Transform
+            rotation: [ 1, 0, 0, 89.9543738355 ]
+            elements:
+              -
+                type: Shape
+                geometry:
+                  type: Sphere
+                  radius: 0.06
+          -
+            type: Transform
+            rotation: [ 1, 0, 0, 89.9543738355 ]
+            translation: [ 0.02, 0, 0.01 ]
+            elements:
+              -
+                type: Transform
+                rotation: [ 1, 0, 0, 90 ]
+                elements:
+                  -
+                    type: Shape
+                    geometry:
+                      type: Cylinder
+                      radius: 0.05
+                      height: 0.02
+  -
+    name: "openarm_right_link0"
+    parent: "body_link_third_link"
+    translation: [ 0, -0.075, 0 ]
+    rotation: [ 1, 0, 0, 90.0002 ]
+    joint_name: "openarm_right_openarm_body_link0_joint"
+    joint_type: fixed
+    mass: 1.14323
+    center_of_mass: [ -0.000948336, 0.000158021, 0.0307686 ]
+    inertia: [
+      0.001128, -4e-06, -3.3e-05,
+      -4e-06, 0.000962, -7e-06,
+      -3.3e-05, -7e-06, 0.00147 ]
+    elements:
+      -
+        type: Visual
+        elements:
+          -
+            type: Transform
+            scale: [ 0.001, 0.001, 0.001 ]
+            elements:
+              - &A1
+                type: Shape
+                appearance:
+                  material:
+                    diffuse: [ 0.05, 0.5, 0.5 ]
+                geometry:
+                  type: Resource
+                  uri: "package://nitro_description/meshes/arm/v10/visual/link0light.stl"
+      -
+        type: Collision
+        elements:
+          -
+            type: Transform
+            translation: [ 0, 0, 0.035 ]
+            elements:
+              -
+                type: Transform
+                rotation: [ 1, 0, 0, 90 ]
+                elements:
+                  -
+                    type: Shape
+                    geometry:
+                      type: Cylinder
+                      radius: 0.05
+                      height: 0.05
+  -
+    name: "openarm_right_link1"
+    parent: "openarm_right_link0"
+    translation: [ 0, 0, 0.0625 ]
+    joint_name: "openarm_right_joint1"
+    joint_type: revolute
+    joint_axis: [ 0, 0, 1 ]
+    joint_id: 28
+    joint_range: [ -80, 200 ]
+    max_joint_velocity: 959.972
+    max_joint_effort: 40
+    mass: 1.14167
+    center_of_mass: [ 0.00114677, 3.31999e-05, 0.0539528 ]
+    inertia: [
+      0.001567, -1e-06, -2.9e-05,
+      -1e-06, 0.001273, 1e-06,
+      -2.9e-05, 1e-06, 0.001016 ]
+    elements:
+      -
+        type: Visual
+        elements:
+          -
+            type: Transform
+            translation: [ -0, 0, -0.0625 ]
+            elements:
+              -
+                type: Transform
+                scale: [ 0.001, 0.001, 0.001 ]
+                elements:
+                  - &A2
+                    type: Shape
+                    appearance:
+                      material:
+                        diffuse: [ 0.05, 0.5, 0.5 ]
+                    geometry:
+                      type: Resource
+                      uri: "package://nitro_description/meshes/arm/v10/visual/link1light.stl"
+      -
+        type: Collision
+        elements:
+          -
+            type: Transform
+            rotation: [ 0, 1, 0, 89.9543738355 ]
+            translation: [ -0, 0, 0.06 ]
+            elements:
+              -
+                type: Transform
+                rotation: [ 1, 0, 0, 90 ]
+                elements:
+                  -
+                    type: Shape
+                    geometry:
+                      type: Cylinder
+                      radius: 0.05
+                      height: 0.08
+  -
+    name: "front_camera_link"
+    parent: "head_yaw"
+    translation: [ 0.03, 0, 0 ]
+    joint_name: "front_camera_link_joint"
+    joint_type: fixed
+    mass: 0.1
+    center_of_mass: [ 0, 0, 0 ]
+    inertia: [
+      1e-05, 0, 0,
+      0, 1e-05, 0,
+      0, 0, 1e-05 ]
+    elements:
+      -
+        type: Camera
+        name: "front_camera"
+        rotation: [ [ 1, 0, 0, 90 ], [ 0, 1, 0, -90 ] ]
+        format: COLOR
+        field_of_view: 62
+        width: 640
+        height: 480
+        frameRate: 30
+        on: true
+  -
+    name: "front_light_link"
+    parent: "head_yaw"
+    translation: [ 0.03, 0, -0.03 ]
+    joint_name: "front_light_link_joint"
+    joint_type: fixed
+    mass: 0.1
+    center_of_mass: [ 0, 0, 0 ]
+    inertia: [
+      1e-05, 0, 0,
+      0, 1e-05, 0,
+      0, 0, 1e-05 ]
+    elements:
+      -
+        type: SpotLight
+        name: "front_light"
+        intensity: 0.7
+        direction: [ 1, 0, 0 ]
+        beam_width: 36
+        cut_off_angle: 40
+        cut_off_exponent: 6
+        attenuation: [ 1, 0, 0.01 ]
+  -
+    name: "back_camera_link"
+    parent: "head_yaw"
+    translation: [ -0.03, 0, 0 ]
+    joint_name: "back_camera_link_joint"
+    joint_type: fixed
+    mass: 0.1
+    center_of_mass: [ 0, 0, 0 ]
+    inertia: [
+      1e-05, 0, 0,
+      0, 1e-05, 0,
+      0, 0, 1e-05 ]
+    elements:
+      -
+        type: Camera
+        name: "back_camera"
+        rotation: [ [ 1, 0, 0, 90 ], [ 0, 1, 0, 90 ] ]
+        format: COLOR
+        field_of_view: 62
+        width: 320
+        height: 240
+        frameRate: 30
+        on: true
+  -
+    name: "back_light_link"
+    parent: "head_yaw"
+    translation: [ -0.03, 0, -0.03 ]
+    joint_name: "back_light_link_joint"
+    joint_type: fixed
+    mass: 0.1
+    center_of_mass: [ 0, 0, 0 ]
+    inertia: [
+      1e-05, 0, 0,
+      0, 1e-05, 0,
+      0, 0, 1e-05 ]
+    elements:
+      -
+        type: SpotLight
+        name: "back_light"
+        intensity: 0.5
+        direction: [ -1, 0, 0 ]
+        beam_width: 36
+        cut_off_angle: 40
+        cut_off_exponent: 6
+        attenuation: [ 1, 0, 0.01 ]
+  -
+    name: "openarm_right_link2"
+    parent: "openarm_right_link1"
+    translation: [ -0.0301, 0, 0.06 ]
+    rotation: [ 1, 0, 0, 90 ]
+    joint_name: "openarm_right_joint2"
+    joint_type: revolute
+    joint_axis: [ -1, 0, 0 ]
+    joint_id: 29
+    joint_range: [ -9.99999, 190 ]
+    max_joint_velocity: 959.972
+    max_joint_effort: 40
+    mass: 0.277509
+    center_of_mass: [ 0.00839629, -2.01451e-08, 0.0325665 ]
+    inertia: [
+      0.000359, 1e-06, -0.000109,
+      1e-06, 0.000376, 1e-06,
+      -0.000109, 1e-06, 0.000232 ]
+    elements:
+      -
+        type: Visual
+        elements:
+          -
+            type: Transform
+            translation: [ 0.0301, 0, -0.1225 ]
+            elements:
+              -
+                type: Transform
+                scale: [ 0.001, 0.001, 0.001 ]
+                elements:
+                  - &A3
+                    type: Shape
+                    appearance:
+                      material:
+                        diffuse: [ 0.05, 0.5, 0.5 ]
+                    geometry:
+                      type: Resource
+                      uri: "package://nitro_description/meshes/arm/v10/visual/link2light.stl"
+      -
+        type: Collision
+        elements:
+          -
+            type: Transform
+            translation: [ 0.03, 0, 0.055 ]
+            elements:
+              -
+                type: Transform
+                rotation: [ 1, 0, 0, 90 ]
+                elements:
+                  -
+                    type: Shape
+                    geometry:
+                      type: Cylinder
+                      radius: 0.035
+                      height: 0.015
+  -
+    name: "openarm_right_link3"
+    parent: "openarm_right_link2"
+    translation: [ 0.0301, 0, 0.06625 ]
+    joint_name: "openarm_right_joint3"
+    joint_type: revolute
+    joint_axis: [ 0, 0, 1 ]
+    joint_id: 30
+    joint_range: [ -90, 90 ]
+    max_joint_velocity: 312
+    max_joint_effort: 27
+    mass: 1.07386
+    center_of_mass: [ -0.00210475, 0.000554909, 0.0904747 ]
+    inertia: [
+      0.004372, 1e-06, 1.1e-05,
+      1e-06, 0.004319, -3.6e-05,
+      1.1e-05, -3.6e-05, 0.000661 ]
+    elements:
+      -
+        type: Visual
+        elements:
+          -
+            type: Transform
+            translation: [ -0, -0, -0.18875 ]
+            elements:
+              -
+                type: Transform
+                scale: [ 0.001, 0.001, 0.001 ]
+                elements:
+                  - &A4
+                    type: Shape
+                    appearance:
+                      material:
+                        diffuse: [ 0.05, 0.5, 0.5 ]
+                    geometry:
+                      type: Resource
+                      uri: "package://nitro_description/meshes/arm/v10/visual/link3light.stl"
+      -
+        type: Collision
+        elements:
+          -
+            type: Transform
+            translation: [ -0, -0, 0.1 ]
+            elements:
+              -
+                type: Transform
+                rotation: [ 1, 0, 0, 90 ]
+                elements:
+                  -
+                    type: Shape
+                    geometry:
+                      type: Cylinder
+                      radius: 0.035
+                      height: 0.2
+  -
+    name: "openarm_right_link4"
+    parent: "openarm_right_link3"
+    translation: [ -0, 0.0315, 0.15375 ]
+    joint_name: "openarm_right_joint4"
+    joint_type: revolute
+    joint_axis: [ 0, 1, 0 ]
+    joint_id: 31
+    joint_range: [ 0, 140 ]
+    max_joint_velocity: 312
+    max_joint_effort: 27
+    mass: 0.634853
+    center_of_mass: [ -0.00290068, -0.0303058, 0.0633964 ]
+    inertia: [
+      0.000623, -1e-06, -1.9e-05,
+      -1e-06, 0.000511, 3.8e-05,
+      -1.9e-05, 3.8e-05, 0.000334 ]
+    elements:
+      -
+        type: Visual
+        elements:
+          -
+            type: Transform
+            translation: [ 0, -0.0315, -0.3425 ]
+            elements:
+              -
+                type: Transform
+                scale: [ 0.001, 0.001, 0.001 ]
+                elements:
+                  - &A5
+                    type: Shape
+                    appearance:
+                      material:
+                        diffuse: [ 0.05, 0.5, 0.5 ]
+                    geometry:
+                      type: Resource
+                      uri: "package://nitro_description/meshes/arm/v10/visual/link4light.stl"
+      -
+        type: Collision
+        elements:
+          -
+            type: Transform
+            translation: [ 0, -0.0315, 0.07 ]
+            elements:
+              -
+                type: Transform
+                rotation: [ 1, 0, 0, 90 ]
+                elements:
+                  -
+                    type: Shape
+                    geometry:
+                      type: Cylinder
+                      radius: 0.035
+                      height: 0.045
+  -
+    name: "openarm_right_link5"
+    parent: "openarm_right_link4"
+    translation: [ 0, -0.0315, 0.0955 ]
+    joint_name: "openarm_right_joint5"
+    joint_type: revolute
+    joint_axis: [ 0, 0, 1 ]
+    joint_id: 32
+    joint_range: [ -90, 90 ]
+    max_joint_velocity: 1200
+    max_joint_effort: 7
+    mass: 0.615659
+    center_of_mass: [ -0.00304967, 0.00088669, 0.0430798 ]
+    inertia: [
+      0.000423, -8e-06, 6e-06,
+      -8e-06, 0.000445, -6e-06,
+      6e-06, -6e-06, 0.000324 ]
+    elements:
+      -
+        type: Visual
+        elements:
+          -
+            type: Transform
+            translation: [ -0, -0, -0.438 ]
+            elements:
+              -
+                type: Transform
+                scale: [ 0.001, 0.001, 0.001 ]
+                elements:
+                  - &A6
+                    type: Shape
+                    appearance:
+                      material:
+                        diffuse: [ 0.05, 0.5, 0.5 ]
+                    geometry:
+                      type: Resource
+                      uri: "package://nitro_description/meshes/arm/v10/visual/link5light.stl"
+      -
+        type: Collision
+        elements:
+          -
+            type: Transform
+            rotation: [ 0, 1, 0, 89.9543738355 ]
+            translation: [ -0, -0, 0.04 ]
+            elements:
+              -
+                type: Transform
+                rotation: [ 1, 0, 0, 90 ]
+                elements:
+                  -
+                    type: Shape
+                    geometry:
+                      type: Cylinder
+                      radius: 0.035
+                      height: 0.07
+  -
+    name: "openarm_right_link6"
+    parent: "openarm_right_link5"
+    translation: [ 0.0375, 0, 0.1205 ]
+    joint_name: "openarm_right_joint6"
+    joint_type: revolute
+    joint_axis: [ 1, 0, 0 ]
+    joint_id: 33
+    joint_range: [ -45, 45 ]
+    max_joint_velocity: 1200
+    max_joint_effort: 7
+    mass: 0.475203
+    center_of_mass: [ -0.0371366, 0.000332305, -9.49837e-05 ]
+    inertia: [
+      0.000143, 1e-06, 1e-06,
+      1e-06, 0.000157, 1e-06,
+      1e-06, 1e-06, 0.000159 ]
+    elements:
+      -
+        type: Visual
+        elements:
+          -
+            type: Transform
+            translation: [ -0.0375, -0, -0.5585 ]
+            elements:
+              -
+                type: Transform
+                scale: [ 0.001, 0.001, 0.001 ]
+                elements:
+                  - &A7
+                    type: Shape
+                    appearance:
+                      material:
+                        diffuse: [ 0.05, 0.5, 0.5 ]
+                    geometry:
+                      type: Resource
+                      uri: "package://nitro_description/meshes/arm/v10/visual/link6light.stl"
+      -
+        type: Collision
+        elements:
+          -
+            type: Transform
+            rotation: [ 1, 0, 0, 89.9543738355 ]
+            translation: [ -0.0375, -0, 0 ]
+            elements:
+              -
+                type: Transform
+                rotation: [ 1, 0, 0, 90 ]
+                elements:
+                  -
+                    type: Shape
+                    geometry:
+                      type: Cylinder
+                      radius: 0.035
+                      height: 0.07
+  -
+    name: "openarm_right_link7"
+    parent: "openarm_right_link6"
+    translation: [ -0.0375, 0, 0 ]
+    joint_name: "openarm_right_joint7"
+    joint_type: revolute
+    joint_axis: [ 0, 1, 0 ]
+    joint_id: 34
+    joint_range: [ -90, 90 ]
+    max_joint_velocity: 1200
+    max_joint_effort: 7
+    mass: 0.465977
+    center_of_mass: [ 6.87551e-05, 0.0126618, 0.0695195 ]
+    inertia: [
+      0.000639, 1e-06, 1e-06,
+      1e-06, 0.000497, 8.9e-05,
+      1e-06, 8.9e-05, 0.000342 ]
+    elements:
+      -
+        type: Visual
+        elements:
+          -
+            type: Transform
+            translation: [ 0, -0, -0.5585 ]
+            elements:
+              -
+                type: Transform
+                scale: [ 0.001, 0.001, 0.001 ]
+                elements:
+                  - &A8
+                    type: Shape
+                    appearance:
+                      material:
+                        diffuse: [ 0.05, 0.5, 0.5 ]
+                    geometry:
+                      type: Resource
+                      uri: "package://nitro_description/meshes/arm/v10/visual/link7light.stl"
+      -
+        type: Collision
+        elements:
+          -
+            type: Transform
+            translation: [ 0, -0, 0.07 ]
+            elements:
+              -
+                type: Transform
+                rotation: [ 1, 0, 0, 90 ]
+                elements:
+                  -
+                    type: Shape
+                    geometry:
+                      type: Cylinder
+                      radius: 0.035
+                      height: 0.07
+  -
+    name: "openarm_right_hand"
+    parent: "openarm_right_link7"
+    translation: [ 0, -0, 0.1001 ]
+    joint_name: "right_openarm_hand_joint"
+    joint_type: fixed
+    mass: 0.35
+    center_of_mass: [ 0, 0.002, 0.03 ]
+    inertia: [
+      0.0002473, 1e-06, 1e-06,
+      1e-06, 1.763e-05, 1e-06,
+      1e-06, 1e-06, 0.0002521 ]
+    elements:
+      -
+        type: Visual
+        elements:
+          -
+            type: Transform
+            translation: [ 0, 0, -0.6585 ]
+            elements:
+              -
+                type: Transform
+                scale: [ 0.001, 0.001, 0.001 ]
+                elements:
+                  - &A9
+                    type: Shape
+                    appearance:
+                      material:
+                        diffuse: [ 0.05, 0.5, 0.5 ]
+                    geometry:
+                      type: Resource
+                      uri: "package://nitro_description/meshes/ee/openarm_hand/visual/hand.stl"
+  -
+    name: "openarm_right_hand_tcp"
+    parent: "openarm_right_hand"
+    translation: [ 0, -0, -0.08 ]
+    joint_name: "openarm_right_hand_tcp_joint"
+    joint_type: fixed
+    mass: 1
+    center_of_mass: [ 0, 0, 0 ]
+    inertia: [
+      1, 0, 0,
+      0, 1, 0,
+      0, 0, 1 ]
+  -
+    name: "openarm_right_right_finger"
+    parent: "openarm_right_hand"
+    translation: [ 0, -0.006, 0.015 ]
+    joint_name: "openarm_right_finger_joint1"
+    joint_type: prismatic
+    joint_axis: [ 0, 1, 0 ]
+    joint_id: 35
+    joint_range: [ 0, 0.044 ]
+    max_joint_velocity: 10
+    max_joint_effort: 333
+    mass: 0.0360255
+    center_of_mass: [ 0.0064528, -0.01702, 0.0219685 ]
+    inertia: [
+      2.375e-06, 1e-06, 1e-06,
+      1e-06, 2.375e-06, 1e-06,
+      1e-06, 1e-06, 7.5e-07 ]
+    material: Hand
+    elements:
+      -
+        type: Transform
+        translation: [ 0, 0.05, -0.673001 ]
+        elements:
+          -
+            type: Transform
+            scale: [ 0.001, -0.001, 0.001 ]
+            elements:
+              - &B0
+                type: Shape
+                appearance:
+                  material:
+                    diffuse: [ 0.498, 1, 0.831 ]
+                geometry:
+                  type: Resource
+                  uri: "package://nitro_description/meshes/ee/openarm_hand/collision/fingerlight2.stl"
+  -
+    name: "openarm_right_left_finger"
+    parent: "openarm_right_hand"
+    translation: [ 0, 0.006, 0.015 ]
+    joint_name: "openarm_right_finger_joint2"
+    joint_type: prismatic
+    joint_axis: [ 0, -1, 0 ]
+    joint_id: 36
+    joint_range: [ 0, 0.044 ]
+    max_joint_velocity: 10
+    max_joint_effort: 333
+    mass: 0.0360255
+    center_of_mass: [ 0.0064528, 0.01702, 0.0219685 ]
+    inertia: [
+      2.375e-06, 1e-06, 1e-06,
+      1e-06, 2.375e-06, 1e-06,
+      1e-06, 1e-06, 7.5e-07 ]
+    material: Hand
+    elements:
+      -
+        type: Transform
+        translation: [ 0, -0.05, -0.673001 ]
+        elements:
+          -
+            type: Transform
+            scale: [ 0.001, 0.001, 0.001 ]
+            elements:
+              - *B0
+  -
+    name: "right_hand_camera_link"
+    parent: "openarm_right_hand"
+    translation: [ 0.03, 0, 0 ]
+    joint_name: "right_hand_camera_link_joint"
+    joint_type: fixed
+    mass: 0.1
+    center_of_mass: [ 0, 0, 0 ]
+    inertia: [
+      1e-05, 0, 0,
+      0, 1e-05, 0,
+      0, 0, 1e-05 ]
+    elements:
+      -
+        type: Camera
+        name: "right_hand_camera"
+        rotation: [ [0, 0, 1, 90], [1, 0, 0, 180] ]
+        format: COLOR
+        field_of_view: 62
+        width: 480
+        height: 360
+        frameRate: 30
+        on: true
+  -
+    name: "right_hand_light_link"
+    parent: "openarm_right_hand"
+    translation: [ 0.03, 0, -0.03 ]
+    joint_name: "right_hand_light_link_joint"
+    joint_type: fixed
+    mass: 0.1
+    center_of_mass: [ 0, 0, 0 ]
+    inertia: [
+      1e-05, 0, 0,
+      0, 1e-05, 0,
+      0, 0, 1e-05 ]
+    elements:
+      -
+        type: SpotLight
+        name: "right_hand_light"
+        intensity: 0.5
+        direction: [ 0, 0, 1 ]
+        beam_width: 36
+        cut_off_angle: 40
+        cut_off_exponent: 6
+        attenuation: [ 1, 0, 0.01 ]
+  -
+    name: "openarm_left_link0"
+    parent: "body_link_third_link"
+    translation: [ 0, 0.075, 0 ]
+    rotation: [ -1, 0, 0, 90.0002 ]
+    joint_name: "openarm_left_openarm_body_link0_joint"
+    joint_type: fixed
+    mass: 1.14323
+    center_of_mass: [ -0.000948336, -0.000158021, 0.0307686 ]
+    inertia: [
+      0.001128, -4e-06, -3.3e-05,
+      -4e-06, 0.000962, -7e-06,
+      -3.3e-05, -7e-06, 0.00147 ]
+    elements:
+      -
+        type: Visual
+        elements:
+          -
+            type: Transform
+            scale: [ 0.001, -0.001, 0.001 ]
+            elements:
+              - *A1
+      -
+        type: Collision
+        elements:
+          -
+            type: Transform
+            translation: [ 0, 0, 0.035 ]
+            elements:
+              -
+                type: Transform
+                rotation: [ 1, 0, 0, 90 ]
+                elements:
+                  -
+                    type: Shape
+                    geometry:
+                      type: Cylinder
+                      radius: 0.05
+                      height: 0.05
+  -
+    name: "openarm_left_link1"
+    parent: "openarm_left_link0"
+    translation: [ 0, 0, 0.0625 ]
+    joint_name: "openarm_left_joint1"
+    joint_type: revolute
+    joint_axis: [ 0, 0, 1 ]
+    joint_id: 37
+    joint_range: [ -200, 80 ]
+    max_joint_velocity: 959.972
+    max_joint_effort: 40
+    mass: 1.14167
+    center_of_mass: [ 0.00114677, -3.31999e-05, 0.0539528 ]
+    inertia: [
+      0.001567, -1e-06, -2.9e-05,
+      -1e-06, 0.001273, 1e-06,
+      -2.9e-05, 1e-06, 0.001016 ]
+    elements:
+      -
+        type: Visual
+        elements:
+          -
+            type: Transform
+            translation: [ -0, 0, -0.0625 ]
+            elements:
+              -
+                type: Transform
+                scale: [ 0.001, -0.001, 0.001 ]
+                elements:
+                  - *A2
+      -
+        type: Collision
+        elements:
+          -
+            type: Transform
+            rotation: [ 0, 1, 0, 89.9543738355 ]
+            translation: [ -0, 0, 0.06 ]
+            elements:
+              -
+                type: Transform
+                rotation: [ 1, 0, 0, 90 ]
+                elements:
+                  -
+                    type: Shape
+                    geometry:
+                      type: Cylinder
+                      radius: 0.05
+                      height: 0.08
+  -
+    name: "openarm_left_link2"
+    parent: "openarm_left_link1"
+    translation: [ -0.0301, 0, 0.06 ]
+    rotation: [ -1, 0, 0, 90 ]
+    joint_name: "openarm_left_joint2"
+    joint_type: revolute
+    joint_axis: [ -1, 0, 0 ]
+    joint_id: 38
+    joint_range: [ -190, 9.99999 ]
+    max_joint_velocity: 959.972
+    max_joint_effort: 40
+    mass: 0.277509
+    center_of_mass: [ 0.00839629, 2.01451e-08, 0.0325665 ]
+    inertia: [
+      0.000359, 1e-06, -0.000109,
+      1e-06, 0.000376, 1e-06,
+      -0.000109, 1e-06, 0.000232 ]
+    elements:
+      -
+        type: Visual
+        elements:
+          -
+            type: Transform
+            translation: [ 0.0301, 0, -0.1225 ]
+            elements:
+              -
+                type: Transform
+                scale: [ 0.001, -0.001, 0.001 ]
+                elements:
+                  - *A3
+      -
+        type: Collision
+        elements:
+          -
+            type: Transform
+            translation: [ 0.03, 0, 0.055 ]
+            elements:
+              -
+                type: Transform
+                rotation: [ 1, 0, 0, 90 ]
+                elements:
+                  -
+                    type: Shape
+                    geometry:
+                      type: Cylinder
+                      radius: 0.035
+                      height: 0.015
+  -
+    name: "openarm_left_link3"
+    parent: "openarm_left_link2"
+    translation: [ 0.0301, 0, 0.06625 ]
+    joint_name: "openarm_left_joint3"
+    joint_type: revolute
+    joint_axis: [ 0, 0, 1 ]
+    joint_id: 39
+    joint_range: [ -90, 90 ]
+    max_joint_velocity: 312
+    max_joint_effort: 27
+    mass: 1.07386
+    center_of_mass: [ -0.00210475, -0.000554909, 0.0904747 ]
+    inertia: [
+      0.004372, 1e-06, 1.1e-05,
+      1e-06, 0.004319, -3.6e-05,
+      1.1e-05, -3.6e-05, 0.000661 ]
+    elements:
+      -
+        type: Visual
+        elements:
+          -
+            type: Transform
+            translation: [ -0, -0, -0.18875 ]
+            elements:
+              -
+                type: Transform
+                scale: [ 0.001, -0.001, 0.001 ]
+                elements:
+                  - *A4
+      -
+        type: Collision
+        elements:
+          -
+            type: Transform
+            translation: [ -0, -0, 0.1 ]
+            elements:
+              -
+                type: Transform
+                rotation: [ 1, 0, 0, 90 ]
+                elements:
+                  -
+                    type: Shape
+                    geometry:
+                      type: Cylinder
+                      radius: 0.035
+                      height: 0.2
+  -
+    name: "openarm_left_link4"
+    parent: "openarm_left_link3"
+    translation: [ -0, 0.0315, 0.15375 ]
+    joint_name: "openarm_left_joint4"
+    joint_type: revolute
+    joint_axis: [ 0, 1, 0 ]
+    joint_id: 40
+    joint_range: [ 0, 140 ]
+    max_joint_velocity: 312
+    max_joint_effort: 27
+    mass: 0.634853
+    center_of_mass: [ -0.00290068, -0.0303058, 0.0633964 ]
+    inertia: [
+      0.000623, -1e-06, -1.9e-05,
+      -1e-06, 0.000511, 3.8e-05,
+      -1.9e-05, 3.8e-05, 0.000334 ]
+    elements:
+      -
+        type: Visual
+        elements:
+          -
+            type: Transform
+            translation: [ 0, -0.0315, -0.3425 ]
+            elements:
+              -
+                type: Transform
+                scale: [ 0.001, 0.001, 0.001 ]
+                elements:
+                  - *A5
+      -
+        type: Collision
+        elements:
+          -
+            type: Transform
+            translation: [ 0, -0.0315, 0.07 ]
+            elements:
+              -
+                type: Transform
+                rotation: [ 1, 0, 0, 90 ]
+                elements:
+                  -
+                    type: Shape
+                    geometry:
+                      type: Cylinder
+                      radius: 0.035
+                      height: 0.045
+  -
+    name: "openarm_left_link5"
+    parent: "openarm_left_link4"
+    translation: [ 0, -0.0315, 0.0955 ]
+    joint_name: "openarm_left_joint5"
+    joint_type: revolute
+    joint_axis: [ 0, 0, 1 ]
+    joint_id: 41
+    joint_range: [ -90, 90 ]
+    max_joint_velocity: 1200
+    max_joint_effort: 7
+    mass: 0.615659
+    center_of_mass: [ -0.00304967, -0.00088669, 0.0430798 ]
+    inertia: [
+      0.000423, -8e-06, 6e-06,
+      -8e-06, 0.000445, -6e-06,
+      6e-06, -6e-06, 0.000324 ]
+    elements:
+      -
+        type: Visual
+        elements:
+          -
+            type: Transform
+            translation: [ -0, -0, -0.438 ]
+            elements:
+              -
+                type: Transform
+                scale: [ 0.001, -0.001, 0.001 ]
+                elements:
+                  - *A6
+      -
+        type: Collision
+        elements:
+          -
+            type: Transform
+            rotation: [ 0, 1, 0, 89.9543738355 ]
+            translation: [ -0, -0, 0.04 ]
+            elements:
+              -
+                type: Transform
+                rotation: [ 1, 0, 0, 90 ]
+                elements:
+                  -
+                    type: Shape
+                    geometry:
+                      type: Cylinder
+                      radius: 0.035
+                      height: 0.07
+  -
+    name: "openarm_left_link6"
+    parent: "openarm_left_link5"
+    translation: [ 0.0375, 0, 0.1205 ]
+    joint_name: "openarm_left_joint6"
+    joint_type: revolute
+    joint_axis: [ 1, 0, 0 ]
+    joint_id: 42
+    joint_range: [ -45, 45 ]
+    max_joint_velocity: 1200
+    max_joint_effort: 7
+    mass: 0.475203
+    center_of_mass: [ -0.0371366, -0.000332305, -9.49837e-05 ]
+    inertia: [
+      0.000143, 1e-06, 1e-06,
+      1e-06, 0.000157, 1e-06,
+      1e-06, 1e-06, 0.000159 ]
+    elements:
+      -
+        type: Visual
+        elements:
+          -
+            type: Transform
+            translation: [ -0.0375, -0, -0.5585 ]
+            elements:
+              -
+                type: Transform
+                scale: [ 0.001, -0.001, 0.001 ]
+                elements:
+                  - *A7
+      -
+        type: Collision
+        elements:
+          -
+            type: Transform
+            rotation: [ 1, 0, 0, 89.9543738355 ]
+            translation: [ -0.0375, -0, 0 ]
+            elements:
+              -
+                type: Transform
+                rotation: [ 1, 0, 0, 90 ]
+                elements:
+                  -
+                    type: Shape
+                    geometry:
+                      type: Cylinder
+                      radius: 0.035
+                      height: 0.07
+  -
+    name: "openarm_left_link7"
+    parent: "openarm_left_link6"
+    translation: [ -0.0375, 0, 0 ]
+    joint_name: "openarm_left_joint7"
+    joint_type: revolute
+    joint_axis: [ 0, -1, 0 ]
+    joint_id: 43
+    joint_range: [ -90, 90 ]
+    max_joint_velocity: 1200
+    max_joint_effort: 7
+    mass: 0.465977
+    center_of_mass: [ 6.87551e-05, -0.0126618, 0.0695195 ]
+    inertia: [
+      0.000639, 1e-06, 1e-06,
+      1e-06, 0.000497, 8.9e-05,
+      1e-06, 8.9e-05, 0.000342 ]
+    elements:
+      -
+        type: Visual
+        elements:
+          -
+            type: Transform
+            translation: [ 0, -0, -0.5585 ]
+            elements:
+              -
+                type: Transform
+                scale: [ 0.001, -0.001, 0.001 ]
+                elements:
+                  - *A8
+      -
+        type: Collision
+        elements:
+          -
+            type: Transform
+            translation: [ 0, -0, 0.07 ]
+            elements:
+              -
+                type: Transform
+                rotation: [ 1, 0, 0, 90 ]
+                elements:
+                  -
+                    type: Shape
+                    geometry:
+                      type: Cylinder
+                      radius: 0.035
+                      height: 0.07
+  -
+    name: "openarm_left_hand"
+    parent: "openarm_left_link7"
+    translation: [ 0, -0, 0.1001 ]
+    joint_name: "left_openarm_hand_joint"
+    joint_type: fixed
+    mass: 0.35
+    center_of_mass: [ 0, 0.002, 0.03 ]
+    inertia: [
+      0.0002473, 1e-06, 1e-06,
+      1e-06, 1.763e-05, 1e-06,
+      1e-06, 1e-06, 0.0002521 ]
+    elements:
+      -
+        type: Visual
+        elements:
+          -
+            type: Transform
+            translation: [ 0, 0, -0.6585 ]
+            elements:
+              -
+                type: Transform
+                scale: [ 0.001, 0.001, 0.001 ]
+                elements:
+                  - *A9
+  -
+    name: "openarm_left_hand_tcp"
+    parent: "openarm_left_hand"
+    translation: [ 0, -0, 0.08 ]
+    joint_name: "openarm_left_hand_tcp_joint"
+    joint_type: fixed
+    mass: 1
+    center_of_mass: [ 0, 0, 0 ]
+    inertia: [
+      1, 0, 0,
+      0, 1, 0,
+      0, 0, 1 ]
+  -
+    name: "openarm_left_right_finger"
+    parent: "openarm_left_hand"
+    translation: [ 0, -0.006, 0.015 ]
+    joint_name: "openarm_left_finger_joint1"
+    joint_type: prismatic
+    joint_axis: [ 0, 1, 0 ]
+    joint_id: 44
+    joint_range: [ 0, 0.044 ]
+    max_joint_velocity: 10
+    max_joint_effort: 333
+    mass: 0.0360255
+    center_of_mass: [ 0.0064528, -0.01702, 0.0219685 ]
+    inertia: [
+      2.375e-06, 1e-06, 1e-06,
+      1e-06, 2.375e-06, 1e-06,
+      1e-06, 1e-06, 7.5e-07 ]
+    material: Hand
+    elements:
+      -
+        type: Transform
+        translation: [ 0, 0.05, -0.673001 ]
+        elements:
+          -
+            type: Transform
+            scale: [ 0.001, -0.001, 0.001 ]
+            elements:
+              - *B0
+  -
+    name: "openarm_left_left_finger"
+    parent: "openarm_left_hand"
+    translation: [ 0, 0.006, 0.015 ]
+    joint_name: "openarm_left_finger_joint2"
+    joint_type: prismatic
+    joint_axis: [ 0, -1, 0 ]
+    joint_id: 45
+    joint_range: [ 0, 0.044 ]
+    max_joint_velocity: 10
+    max_joint_effort: 333
+    mass: 0.0360255
+    center_of_mass: [ 0.0064528, 0.01702, 0.0219685 ]
+    inertia: [
+      2.375e-06, 1e-06, 1e-06,
+      1e-06, 2.375e-06, 1e-06,
+      1e-06, 1e-06, 7.5e-07 ]
+    material: Hand
+    elements:
+      -
+        type: Transform
+        translation: [ 0, -0.05, -0.673001 ]
+        elements:
+          -
+            type: Transform
+            scale: [ 0.001, 0.001, 0.001 ]
+            elements:
+              - *B0
+  -
+    name: "openarm_right_right_finger_pad"
+    parent: "openarm_right_right_finger"
+    joint_type: fixed
+    translation: [ 0.00,  -0.015, 0.035 ]   # 内側(＋Y)へ少し寄せる
+    rotation: [ 1, 0, 0, 6 ]
+    #material: Hand                          # パッドだけ高摩擦
+    mass: 0.005
+    center_of_mass: [ 0, 0, 0 ]
+    inertia: [ 1e-6, 0, 0, 0, 1e-6, 0, 0, 0, 1e-6 ]
+    elements:
+      -
+        type: Shape
+        appearance:
+          material:
+            diffuse: [ 0.9, 0.2, 0.2 ]      # 視認用の色（任意）
+        geometry:
+          type: Box
+          size: [ 0.030, 0.01, 0.08 ]    # 長さx, 厚みy, 幅z（仮）
+  -
+    name: "openarm_right_left_finger_pad"
+    parent: "openarm_right_left_finger"
+    joint_type: fixed
+    translation: [ 0.00,  0.015, 0.035 ]   # 内側(−Y)へ
+    #material: Hand
+    mass: 0.005
+    center_of_mass: [ 0, 0, 0 ]
+    inertia: [ 1e-6, 0, 0, 0, 1e-6, 0, 0, 0, 1e-6 ]
+    elements:
+      -
+        type: Shape
+        appearance:
+          material:
+            diffuse: [ 0.9, 0.2, 0.2 ]
+        geometry:
+          type: Box
+          size: [ 0.030, 0.01, 0.08 ] 
+  -
+    name: "openarm_left_right_finger_pad"
+    parent: "openarm_left_right_finger"
+    joint_type: fixed
+    translation: [ 0.00,  -0.015, 0.035 ]   # 内側(＋Y)へ
+    #material: Hand
+    mass: 0.005
+    center_of_mass: [ 0, 0, 0 ]
+    inertia: [ 1e-6, 0, 0, 0, 1e-6, 0, 0, 0, 1e-6 ]
+    elements:
+      -
+        type: Shape
+        appearance:
+          material:
+            diffuse: [ 0.9, 0.2, 0.2 ]
+        geometry:
+          type: Box
+          size: [ 0.030, 0.01, 0.08 ] 
+  -
+    name: "openarm_left_left_finger_pad"
+    parent: "openarm_left_left_finger"
+    joint_type: fixed
+    translation: [ 0.00,  0.015, 0.035 ]   # 内側(−Y)へ
+    #material: Hand
+    mass: 0.005
+    center_of_mass: [ 0, 0, 0 ]
+    inertia: [ 1e-6, 0, 0, 0, 1e-6, 0, 0, 0, 1e-6 ]
+    elements:
+      -
+        type: Shape
+        appearance:
+          material:
+            diffuse: [ 0.9, 0.2, 0.2 ]
+        geometry:
+          type: Box
+          size: [ 0.030, 0.01, 0.08 ] 
+
+  -
+    name: "left_hand_camera_link"
+    parent: "openarm_left_hand"
+    translation: [ 0.03, 0, 0 ]
+    joint_name: "left_hand_camera_link_joint"
+    joint_type: fixed
+    mass: 0.1
+    center_of_mass: [ 0, 0, 0 ]
+    inertia: [
+      1e-05, 0, 0,
+      0, 1e-05, 0,
+      0, 0, 1e-05 ]
+    elements:
+      -
+        type: Camera
+        name: "left_hand_camera"
+        rotation: [ [ 0, 0, 1, -90 ], [ 0, 1, 0, 180 ] ]
+        format: COLOR
+        field_of_view: 62
+        width: 480
+        height: 360
+        frameRate: 30
+        on: true
+  -
+    name: "left_hand_light_link"
+    parent: "openarm_left_hand"
+    translation: [ 0.03, 0, -0.03 ]
+    joint_name: "left_hand_light_link_joint"
+    joint_type: fixed
+    mass: 0.1
+    center_of_mass: [ 0, 0, 0 ]
+    inertia: [
+      1e-05, 0, 0,
+      0, 1e-05, 0,
+      0, 0, 1e-05 ]
+    elements:
+      -
+        type: SpotLight
+        name: "left_hand_light"
+        intensity: 0.5
+        direction: [ 0, 0, 1 ]
+        beam_width: 36
+        cut_off_angle: 40
+        cut_off_exponent: 6
+        attenuation: [ 1, 0, 0.01 ]
+  -
+    &WIRE_GUARD_MAIN
+    name: WIRE_GUARD_L
+    parent: left_wheel_base
+    jointType: fixed
+    translation: [ 0, 0, 0]
+    mass: 0.001
+    inertia: [
+      0.001, 0, 0,
+      0, 0.001, 0,
+      0, 0, 0.001 ]
+    elements:
+      Collision:
+        shape:
+          geometry: { type: Box, size: [ 0.59, 0.11, 0.14 ] }
+          appearance: &GUARD_COLOR
+            material:
+              diffuseColor: [ 0, 1, 0 ]
+              transparency: 0.6
+  -
+    <<: *WIRE_GUARD_MAIN
+    name: WIRE_GUARD_R
+    parent: right_wheel_base
+    translation: [ 0, 0, 0 ]
+  -
+    &WIRE_GUARD_SUB
+    name: WIRE_GUARD_LF
+    parent: left_front_wheel_base
+    jointType: fixed
+    translation: [ 0, 0, 0 ]
+    mass: 0.001
+    inertia: [
+      0.001, 0, 0,
+      0, 0.001, 0,
+      0, 0, 0.001 ]
+    elements:
+      Collision:
+        shape:
+          geometry: { type: Box, size: [ 0.43, 0.03, 0.14 ] }
+          appearance: *GUARD_COLOR
+  -
+    <<: *WIRE_GUARD_SUB
+    name: WIRE_GUARD_RF
+    parent: right_front_wheel_base
+    translation: [ 0, 0, 0 ]
+  -
+    <<: *WIRE_GUARD_SUB
+    name: WIRE_GUARD_LR
+    parent: left_rear_wheel_base
+    translation: [ 0, 0, 0 ]
+  -
+    <<: *WIRE_GUARD_SUB
+    name: WIRE_GUARD_RR
+    parent: right_rear_wheel_base
+    translation: [ 0, 0, 0 ]
+
+collisionDetection:
+  excludeTreeDepth: 1
+  excludeLinkGroups:
+    -
+      name: FingerGroup
+      links: [ openarm_right_right_finger, openarm_right_left_finger,
+               openarm_left_right_finger, openarm_left_left_finger ]
+
+  excludeSelfCollisionLinks: [
+    left_wheel_front, left_wheel_center, left_wheel_back,
+    right_wheel_front, right_wheel_center, right_wheel_back,
+    left_front_wheel_front, left_front_wheel_center, left_front_wheel_back,
+    right_front_wheel_front, right_front_wheel_center, right_front_wheel_back,
+    left_rear_wheel_front, left_rear_wheel_center, left_rear_wheel_back,
+    right_rear_wheel_front, right_rear_wheel_center, right_rear_wheel_back ]
+  
+  excludeLinksWireCollision: [
+    left_wheel_front, left_wheel_center, left_wheel_back,
+    right_wheel_front, right_wheel_center, right_wheel_back,
+    left_front_wheel_front, left_front_wheel_center, left_front_wheel_back,
+    right_front_wheel_front, right_front_wheel_center, right_front_wheel_back,
+    left_rear_wheel_front, left_rear_wheel_center, left_rear_wheel_back,
+    right_rear_wheel_front, right_rear_wheel_center, right_rear_wheel_back,
+    openarm_right_right_finger, openarm_right_left_finger,
+    openarm_left_right_finger, openarm_left_left_finger,
+    openarm_left_right_finger_pad, openarm_left_left_finger_pad, openarm_right_right_finger_pad, openarm_right_left_finger_pad,
+    openarm_right_hand, openarm_left_hand, openarm_right_link7 , openarm_left_link7 ]
+  excludeLinksDynamic: [ WIRE_GUARD_L, WIRE_GUARD_R, WIRE_GUARD_LF, WIRE_GUARD_RF, WIRE_GUARD_LR, WIRE_GUARD_RR ]

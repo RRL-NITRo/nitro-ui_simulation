@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot name="crawler_body" xmlns:xacro="http://ros.org/wiki/xacro">
+     
+  <xacro:include filename="$(find nitro_discription)/xacro/body.xacro"/>
+  <xacro:include filename="$(find nitro_discription)/xacro/flipper.xacro"/>
+  <xacro:macro name="make_box_inertia" params="mass size_x size_y size_z">
+
+    <inertial>
+        <mass value="${mass}" />
+        <inertia ixx="${mass * (size_y * size_y + size_z * size_z) / 12}" ixy="0" ixz="0" iyy="${mass * (size_z * size_z + size_x * size_x) / 12}" iyz="0" izz="${mass * (size_x * size_x + size_y * size_y) / 12}" />
+    </inertial>
+  </xacro:macro>
+
+
+  <xacro:property name="WHITE" value="1 1 1 1" />
+
+  <link name="base_footprint"/>
+  <joint name="plane2base" type="fixed">
+    <parent link="base_footprint"/>
+    <child link="base_link"/>
+    <origin xyz="0 0 0.088" rpy="0 0 0"/>
+  </joint>
+  
+  <link name="base_link"/>
+
+  <xacro:main_body_newbelt parent="main_body"/>
+
+
+  <xacro:flipper    LR="left"  FR="front" parent="main_body"/>
+  <xacro:flipper   LR="left"  FR="rear"  parent="main_body" />
+  <xacro:flipper   LR="right" FR="front" parent="main_body"/>
+  <xacro:flipper   LR="right" FR="rear"  parent="main_body" />
+
+
+    <gazebo>
+      <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+          <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+          <legacyModeNS>false</legacyModeNS>
+      </plugin>
+
+  </gazebo>
+
+
+</robot>

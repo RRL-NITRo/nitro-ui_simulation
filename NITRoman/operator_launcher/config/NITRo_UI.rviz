@@ -1,0 +1,749 @@
+Panels:
+  - Class: rviz_common/Displays
+    Help Height: 78
+    Name: Displays
+    Property Tree Widget:
+      Expanded:
+        - /Global Options1
+        - /Status1
+        - /RobotModel1
+        - /String1
+        - /RobotModel2
+        - /String2
+      Splitter Ratio: 0.5
+    Tree Height: 348
+  - Class: rviz_common/Selection
+    Name: Selection
+  - Class: rviz_common/Tool Properties
+    Expanded:
+      - /2D Goal Pose1
+      - /Publish Point1
+    Name: Tool Properties
+    Splitter Ratio: 0.5886790156364441
+  - Class: rviz_common/Views
+    Expanded:
+      - /Current View1
+    Name: Views
+    Splitter Ratio: 0.5
+  - Class: rviz_common/Time
+    Experimental: false
+    Name: Time
+    SyncMode: 0
+    SyncSource: ""
+Visualization Manager:
+  Class: ""
+  Displays:
+    - Alpha: 0.5
+      Cell Size: 1
+      Class: rviz_default_plugins/Grid
+      Color: 160; 160; 164
+      Enabled: true
+      Line Style:
+        Line Width: 0.029999999329447746
+        Value: Lines
+      Name: Grid
+      Normal Cell Count: 0
+      Offset:
+        X: 0
+        Y: 0
+        Z: 0
+      Plane: XY
+      Plane Cell Count: 10
+      Reference Frame: <Fixed Frame>
+      Value: true
+    - Alpha: 0.5
+      Class: rviz_default_plugins/RobotModel
+      Collision Enabled: false
+      Description File: ""
+      Description Source: Topic
+      Description Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /target/robot_description
+      Enabled: true
+      Links:
+        All Links Enabled: true
+        Expand Joint Details: false
+        Expand Link Details: false
+        Expand Tree: false
+        Link Tree Style: Links in Alphabetic Order
+        base_footprint:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        body_base:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        body_link_base:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        body_link_first_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        body_link_second_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        body_link_third_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        body_link_yaw:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        head_pitch:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        head_yaw:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        left_front:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        left_rear:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        main_body:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        mainbelt_left:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        mainbelt_right:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        openarm_left_hand:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        openarm_left_hand_tcp:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        openarm_left_left_finger:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        openarm_left_link0:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        openarm_left_link1:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        openarm_left_link2:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        openarm_left_link3:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        openarm_left_link4:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        openarm_left_link5:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        openarm_left_link6:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        openarm_left_link7:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        openarm_left_right_finger:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        openarm_right_hand:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        openarm_right_hand_tcp:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        openarm_right_left_finger:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        openarm_right_link0:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        openarm_right_link1:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        openarm_right_link2:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        openarm_right_link3:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        openarm_right_link4:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        openarm_right_link5:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        openarm_right_link6:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        openarm_right_link7:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        openarm_right_right_finger:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        right_front:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        right_rear:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+      Mass Properties:
+        Inertia: false
+        Mass: false
+      Name: RobotModel
+      TF Prefix: target
+      Update Interval: 0
+      Value: true
+      Visual Enabled: true
+    - Class: rviz_default_plugins/Image
+      Enabled: true
+      Max Value: 1
+      Median window: 5
+      Min Value: 0
+      Name: Front
+      Normalize Range: true
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /nitroman/front_camera
+      Value: true
+    - Class: rviz_default_plugins/Image
+      Enabled: true
+      Max Value: 1
+      Median window: 5
+      Min Value: 0
+      Name: Back
+      Normalize Range: true
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /nitroman/back_camera
+      Value: true
+    - Class: rviz_default_plugins/Image
+      Enabled: true
+      Max Value: 1
+      Median window: 5
+      Min Value: 0
+      Name: LeftHand
+      Normalize Range: true
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /nitroman/left_hand_camera
+      Value: true
+    - Class: rviz_default_plugins/Image
+      Enabled: true
+      Max Value: 1
+      Median window: 5
+      Min Value: 0
+      Name: RightHand
+      Normalize Range: true
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /nitroman/right_hand_camera
+      Value: true
+    - Alpha: 1
+      Autocompute Intensity Bounds: true
+      Autocompute Value Bounds:
+        Max Value: 2.3845973014831543
+        Min Value: -6.38241720199585
+        Value: true
+      Axis: Z
+      Channel Name: intensity
+      Class: rviz_default_plugins/PointCloud2
+      Color: 255; 255; 255
+      Color Transformer: AxisColor
+      Decay Time: 0
+      Enabled: true
+      Invert Rainbow: false
+      Max Color: 255; 255; 255
+      Max Intensity: 4096
+      Min Color: 0; 0; 0
+      Min Intensity: 0
+      Name: PointCloud2
+      Position Transformer: XYZ
+      Selectable: true
+      Size (Pixels): 3
+      Size (m): 0.009999999776482582
+      Style: Flat Squares
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        Filter size: 10
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /imax/livox_frame_front/point_cloud
+      Use Fixed Frame: true
+      Use rainbow: true
+      Value: true
+    - Class: rviz_default_plugins/TF
+      Enabled: false
+      Frame Timeout: 15
+      Frames:
+        All Enabled: true
+      Marker Scale: 1
+      Name: TF
+      Show Arrows: true
+      Show Axes: true
+      Show Names: false
+      Tree:
+        {}
+      Update Interval: 0
+      Value: false
+    - Align Bottom: false
+      Background Alpha: 0.800000011920929
+      Background Color: 0; 0; 0
+      Class: jsk_rviz_plugin/String
+      Enabled: true
+      Foreground Alpha: 0.800000011920929
+      Foreground Color: 25; 255; 240
+      Name: String
+      Overtake Color Properties: false
+      Overtake Position Properties: true
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /joy_mode_str
+      Value: true
+      font: DejaVu Sans Mono
+      height: 48
+      left: 0
+      line width: 2
+      text size: 12
+      top: 0
+      width: 128
+    - Alpha: 1
+      Class: rviz_default_plugins/RobotModel
+      Collision Enabled: false
+      Description File: ""
+      Description Source: Topic
+      Description Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /robot_description
+      Enabled: true
+      Links:
+        All Links Enabled: true
+        Expand Joint Details: false
+        Expand Link Details: false
+        Expand Tree: false
+        Link Tree Style: Links in Alphabetic Order
+        base_footprint:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        body_base:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        body_link_base:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        body_link_first_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        body_link_second_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        body_link_third_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        body_link_yaw:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        head_pitch:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        head_yaw:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        left_front:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        left_rear:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        main_body:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        mainbelt_left:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        mainbelt_right:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        openarm_left_hand:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        openarm_left_hand_tcp:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        openarm_left_left_finger:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        openarm_left_link0:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        openarm_left_link1:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        openarm_left_link2:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        openarm_left_link3:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        openarm_left_link4:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        openarm_left_link5:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        openarm_left_link6:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        openarm_left_link7:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        openarm_left_right_finger:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        openarm_right_hand:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        openarm_right_hand_tcp:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        openarm_right_left_finger:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        openarm_right_link0:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        openarm_right_link1:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        openarm_right_link2:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        openarm_right_link3:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        openarm_right_link4:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        openarm_right_link5:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        openarm_right_link6:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        openarm_right_link7:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        openarm_right_right_finger:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        right_front:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        right_rear:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+      Mass Properties:
+        Inertia: false
+        Mass: false
+      Name: RobotModel
+      TF Prefix: ""
+      Update Interval: 0
+      Value: true
+      Visual Enabled: true
+    - Align Bottom: false
+      Background Alpha: 0.800000011920929
+      Background Color: 0; 0; 0
+      Class: jsk_rviz_plugin/String
+      Enabled: true
+      Foreground Alpha: 0.800000011920929
+      Foreground Color: 25; 255; 240
+      Name: String
+      Overtake Color Properties: true
+      Overtake Position Properties: true
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /arm_mode_str
+      Value: true
+      font: DejaVu Sans Mono
+      height: 128
+      left: 0
+      line width: 2
+      text size: 12
+      top: 50
+      width: 128
+  Enabled: true
+  Global Options:
+    Background Color: 48; 48; 48
+    Fixed Frame: target/base_link
+    Frame Rate: 30
+  Name: root
+  Tools:
+    - Class: rviz_default_plugins/Interact
+      Hide Inactive Objects: true
+    - Class: rviz_default_plugins/MoveCamera
+    - Class: rviz_default_plugins/Select
+    - Class: rviz_default_plugins/FocusCamera
+    - Class: rviz_default_plugins/Measure
+      Line color: 128; 128; 0
+    - Class: rviz_default_plugins/SetInitialPose
+      Covariance x: 0.25
+      Covariance y: 0.25
+      Covariance yaw: 0.06853891909122467
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /initialpose
+    - Class: rviz_default_plugins/SetGoal
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /goal_pose
+    - Class: rviz_default_plugins/PublishPoint
+      Single click: true
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /clicked_point
+  Transformation:
+    Current:
+      Class: rviz_default_plugins/TF
+  Value: true
+  Views:
+    Current:
+      Class: rviz_default_plugins/Orbit
+      Distance: 2.315778970718384
+      Enable Stereo Rendering:
+        Stereo Eye Separation: 0.05999999865889549
+        Stereo Focal Distance: 1
+        Swap Stereo Eyes: false
+        Value: false
+      Focal Point:
+        X: -0.15148688852787018
+        Y: -0.3616834282875061
+        Z: -0.08214981853961945
+      Focal Shape Fixed Size: true
+      Focal Shape Size: 0.05000000074505806
+      Invert Z Axis: false
+      Name: Current View
+      Near Clip Distance: 0.009999999776482582
+      Pitch: 0.6003983020782471
+      Target Frame: <Fixed Frame>
+      Value: Orbit (rviz)
+      Yaw: 0.7453986406326294
+    Saved: ~
+Window Geometry:
+  Back:
+    collapsed: false
+  Displays:
+    collapsed: false
+  Front:
+    collapsed: false
+  Height: 1376
+  Hide Left Dock: false
+  Hide Right Dock: false
+  LeftHand:
+    collapsed: false
+  QMainWindow State: 000000ff00000000fd00000004000000000000029b00000204fc0200000009fb00000008004200610063006b0100000300000002040000002800fffffffb0000001200530065006c0065006300740069006f006e00000001e10000009b0000005c00fffffffb0000001e0054006f006f006c002000500072006f007000650072007400690065007302000001ed000001df00000185000000a3fb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afb0000002000730065006c0065006300740069006f006e00200062007500660066006500720200000138000000aa0000023a00000294fb00000014005700690064006500530074006500720065006f02000000e6000000d2000003ee0000030bfb0000000c004b0069006e0065006300740200000186000001060000030c00000261fb00000008004200610063006b0100000214000001830000000000000000000000010000017300000204fc0200000003fc0000030000000204000000e60100001cfa000000000100000002fb000000100044006900730070006c0061007900730100000000ffffffff0000015600fffffffb0000000a0056006900650077007301000005e4000001560000010000fffffffb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000041000000780000000000000000fb0000001200530065006c0065006300740069006f006e010000025a000000b2000000000000000000000002000009ba000002bdfc0100000006fb00000010004c00650066007400480061006e00640100000000000003190000007400fffffffb0000000a00460072006f006e0074010000031f000003840000005900fffffffb000000120052006900670068007400480061006e006401000006a9000003110000007d00fffffffb0000000a00460072006f006e007400000000000000073a0000000000000000fb00000008004400340033003500000003d9000003610000000000000000fb0000000a00560069006500770073030000004e00000080000002e10000019700000003000009ba00000039fc0100000002fb0000000800540069006d00650100000000000009ba000002fb00fffffffb0000000800540069006d00650100000000000004500000000000000000000005a00000020400000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  RightHand:
+    collapsed: false
+  Selection:
+    collapsed: false
+  Time:
+    collapsed: false
+  Tool Properties:
+    collapsed: false
+  Views:
+    collapsed: false
+  Width: 2490
+  X: 70
+  Y: 27

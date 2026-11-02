@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="four_wheel_car">
+
+  <!-- 車体のカラー -->
+  <material name="body_colors">
+    <color rgba="0.6 0.6 0.6 1.0"/>
+  </material>
+
+  <!-- include common xacro macros -->
+  <xacro:include filename="$(find nitro_description)/xacro/macros/make_wheel.xacro"/>
+
+  <xacro:macro name="crawler_wheel_imitation">
+  <!-- カーボンの密度 (kg/m³) -->
+  <xacro:property name="carbon_density" value="1750"/>
+
+  <!-- 4輪車のパラメータ -->
+  <xacro:property name="body_length" value="0.45"/>
+  <xacro:property name="body_width" value="0.244"/>
+  <xacro:property name="body_height" value="0"/>
+  <xacro:property name="wheel_radius" value="0.082"/>
+  <xacro:property name="wheel_width" value="0.1"/>
+  
+  <joint name="2main_body" type="fixed">
+    <parent link="base_link"/>
+    <child  link="main_body"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+
+  <!-- 車体の定義 -->
+
+  <link name="main_body">
+    <visual>
+      <origin xyz="0 0 0" rpy="${pi} 0 0"/>
+      <geometry>
+        <mesh filename="package://nitro_description/meshes/body/main_crawler.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="body_colors"/>
+    </visual>
+    
+    <inertial>
+    <mass value="33"/>
+    <inertia ixx="0.42295" ixy="0.0" ixz="0.0" iyy="0.733975" iyz="0.0" izz="1.063975"/>
+  </inertial>
+  </link>
+
+  <!-- 左右ホイールを作成 -->
+  <!-- 左側ホイール -->
+  <xacro:make_wheel offset_x="0" axis="1" offset_y="0.122" length="${body_length}" width="${wheel_width}" radius="${wheel_radius}" parent="main_body" name="left_wheel">
+  </xacro:make_wheel>
+
+
+  <!-- 右側ホイール -->
+  <xacro:make_wheel  offset_x="0" axis="1" offset_y="-0.122" length="${body_length}" width="${wheel_width}" radius="${wheel_radius}" parent="main_body" name="right_wheel">
+  </xacro:make_wheel>
+
+</xacro:macro>
+
+</robot>

@@ -1,0 +1,232 @@
+#include <cmath>
+#include <rclcpp/rclcpp.hpp>
+#include <std_msgs/msg/string.hpp>
+#include <geometry_msgs/msg/twist_stamped.hpp>
+#include <sensor_msgs/msg/joint_state.hpp>
+#include <arm_msgs/msg/arm_command.hpp>
+#include <ps5_msgs/msg/ps5_joy.hpp>
+#include <std_msgs/msg/bool.hpp>
+#include <flipper_msgs/msg/flipper.hpp>
+
+class Joy2Command : public rclcpp::Node {
+public:
+    Joy2Command() : Node("ps5_to_ros_command") {
+        loadParameters();
+        initPublishers();
+        ps5_sub_ = this->create_subscription<ps5_msgs::msg::PS5Joy>(
+            "/ps5_joy", 1, std::bind(&Joy2Command::ps5Callback, this, std::placeholders::_1));
+        
+    }
+
+    void initPublishers() {
+        arm_command_pub_ = this->create_publisher<arm_msgs::msg::ArmCommand>("/arm_command", 1);
+        arm_twist_pub_ = this->create_publisher<geometry_msgs::msg::Twist>("/arm_twist", 1);
+        joy_mode_pub_ = this->create_publisher<std_msgs::msg::String>("/joy_mode_str", 1);
+        twiststamped_pub_ = this->create_publisher<geometry_msgs::msg::TwistStamped>("/operation_info/cmd_vel", 1);
+        twist_pub_ = this->create_publisher<geometry_msgs::msg::Twist>("/target/cmd_vel", 1);
+        flipper_command_pub_ = this->create_publisher<flipper_msgs::msg::Flipper>("/flipper_command", 1);
+        pub_gripper_ = this->create_publisher<sensor_msgs::msg::JointState>("/gripper_target", 1);
+        pub_flag_ = this->create_publisher<std_msgs::msg::Bool>("/flag", 1);
+    }
+    
+    void loadParameters() {
+        this->declare_parameter("crawler.linear.x.max_velocity", 10.0);
+        this->declare_parameter("crawler.angular.z.max_velocity", 6.28);
+        this->declare_parameter("manipulator.max_linear_velocity", 0.1);
+        this->declare_parameter("manipulator.max_angular_velocity", 0.1);
+        this->declare_parameter("flipper.max_velocity", 0.1);
+        this->declare_parameter("flipper.min_velocity", 0.1);
+        this->get_parameter("crawler.linear.x.max_velocity", crawler_linear_x_max_velocity_);
+        this->get_parameter("crawler.angular.z.max_velocity", crawler_angular_z_max_velocity_);
+        this->get_parameter("manipulator.max_linear_velocity", manipulator_max_linear_velocity_);
+        this->get_parameter("manipulator.max_angular_velocity", manipulator_max_angular_velocity_);
+        this->get_parameter("flipper.max_velocity", flipper_max_velocity_);
+        this->get_parameter("flipper.min_velocity", flipper_min_velocity_);
+    }
+
+    void ps5Callback(const ps5_msgs::msg::PS5Joy::SharedPtr msg) {
+        createTwistMsg(msg);
+        if (msg->command_l) {
+            toggleArmMode(msg);
+        }
+        if (msg->joy_l && !old_msg_.joy_l) {
+            is_back_mode = !is_back_mode;
+            RCLCPP_INFO(this->get_logger(), "Back mode %s", is_back_mode ? "enabled" : "disabled");
+        }
+        if (is_arm_mode_) {
+            armCommandPublisher(msg);
+        } else {
+            flipperCommandPublisher(msg);
+        }
+        old_msg_ = *msg;
+    }
+
+    void toggleArmMode(const ps5_msgs::msg::PS5Joy::SharedPtr &msg) {
+        if (msg->command_l && !old_msg_.command_l) {
+            is_arm_mode_ = !is_arm_mode_;
+            joy_mode_str_.data = is_arm_mode_ ? "[Manipulator]" : "[Flipper]";
+            joy_mode_pub_->publish(joy_mode_str_);
+            RCLCPP_INFO(this->get_logger(), "%s_MODE", is_arm_mode_ ? "ARM" : "FLIPPER");
+        }
+    }
+
+    void createTwistMsg(const ps5_msgs::msg::PS5Joy::SharedPtr &msg) {
+        auto twist_msg = geometry_msgs::msg::Twist();
+        if (is_back_mode) {
+            twist_msg.linear.x = -msg->left_joystick_y * crawler_linear_x_max_velocity_;
+            twist_msg.angular.z = msg->left_joystick_x * crawler_angular_z_max_velocity_;
+        } else {
+            twist_msg.linear.x = msg->left_joystick_y * crawler_linear_x_max_velocity_;
+            twist_msg.angular.z = msg->left_joystick_x * crawler_angular_z_max_velocity_;
+        }
+        twist_pub_->publish(twist_msg);
+
+        auto twist_stamped_msg = geometry_msgs::msg::TwistStamped();
+        twist_stamped_msg.header.stamp = this->now();
+        twist_stamped_msg.twist = twist_msg;
+        twiststamped_pub_->publish(twist_stamped_msg);
+    }
+
+    void armCommandPublisher(const ps5_msgs::msg::PS5Joy::SharedPtr &msg) {
+        auto arm_twist_msg = geometry_msgs::msg::Twist();
+        arm_twist_msg.linear.x = msg->right_joystick_y*manipulator_max_linear_velocity_;
+        arm_twist_msg.linear.y = msg->right_joystick_x*manipulator_max_linear_velocity_;
+        arm_twist_msg.linear.z = (msg->l1 ? 1.0 : (msg->r1 ? -1.0 : 0.0))*0.5*manipulator_max_linear_velocity_;
+        arm_twist_msg.angular.x = (msg->l2 ? 1.0 : (msg->r2 ? -1.0 : 0.0))*manipulator_max_angular_velocity_;
+        arm_twist_msg.angular.y = msg->cross_up*manipulator_max_angular_velocity_;
+        arm_twist_msg.angular.z = msg->cross_left*manipulator_max_angular_velocity_;
+        arm_twist_pub_->publish(arm_twist_msg);
+
+        auto arm_command_msg = arm_msgs::msg::ArmCommand();
+        static bool gripper_state = false;
+        if (msg->circle && !old_msg_.circle) {
+            gripper_state = !gripper_state;
+        }
+
+        gripper_target_.header.stamp = this->now();
+        gripper_target_.name = {"left_finger", "right_finger"};
+        gripper_target_.position = {gripper_state ? 0.0 : -M_PI/6, gripper_state ? 0.0 : -M_PI/6};
+        gripper_target_.velocity = {0.0 , 0.0};
+        gripper_target_.effort = {0.0, 0.0};
+        pub_gripper_->publish(gripper_target_);
+        arm_command_msg.gripper_close = gripper_state;
+        arm_command_msg.gripper_open = !gripper_state;
+        arm_command_msg.reset_home_position = msg->home;
+        arm_command_msg.reset_end_posture = msg->capture;
+        arm_command_pub_->publish(arm_command_msg);
+        
+    }
+
+void flipperCommandPublisher(const ps5_msgs::msg::PS5Joy::SharedPtr &msg) {
+
+    auto flipper_msg = flipper_msgs::msg::Flipper();
+
+    static bool use_position = true;
+    
+    // スイッチが押されたときにモードを切り替え
+    if (msg->command_r && !old_msg_.command_r) {
+        use_position = !use_position;
+        RCLCPP_INFO(this->get_logger(), "Switched to %s mode", use_position ? "position" : "velocity");
+    }
+
+    flipper_msg.use_position = use_position;
+    flipper_msg.use_velocity = !use_position;
+
+    flipper_msg.auto_control =msg->joy_r;
+    // positionモードの場合
+    if (use_position) {
+        if (msg->circle) {
+            flipper_msg.position = {0, 0, 0, 0};
+        } else if (msg->square) {
+            flipper_msg.position = {-M_PI / 2, -M_PI / 2, -M_PI / 2, -M_PI / 2};
+        } else {
+            // 位置の値をトランクして小数点以下2桁に制限
+            for (size_t i = 0; i < flipper_msg.position.size(); ++i) {
+                flipper_msg.position[i] = trunc(flipper_msg.position[i] * 100.0) / 100.0;
+            }
+        }
+    } else { // velocityモードの場合
+        // フリッパーの動作を制御
+        flipper_msg.velocity = {0, 0, 0, 0};
+
+    auto rotate_direction = [](bool up_key, bool down_key){
+        if(up_key)
+            return -1;
+        else if (down_key)
+            return 1;
+        else 
+            return 0;
+    };
+
+        if (!is_back_mode) {
+            // 前左上げ下げ
+            flipper_msg.velocity[0] = -rotate_direction(msg->l1, msg->l2);
+            // 前右上げ下げ
+            flipper_msg.velocity[1] = msg->cross_up;
+            
+            // 後左上げ下げ
+            flipper_msg.velocity[2] =  -rotate_direction(msg->r1, msg->r2);
+            // 後右上げ下げ
+            flipper_msg.velocity[3] = -rotate_direction(msg->triangle, msg->cross);
+            
+        } else {
+            // is_back_modeの場合のフリッパーの動作を制御
+            flipper_msg.velocity[2] = -rotate_direction(msg->l1, msg->l2);
+            flipper_msg.velocity[3] = -rotate_direction(msg->r1, msg->r2);
+            flipper_msg.velocity[0] = msg->cross_up;
+            flipper_msg.velocity[1] = -rotate_direction(msg->triangle, msg->cross);
+        }
+
+        // RStickの上下入力によるフリッパーの動作
+        if (msg->right_joystick_y != 0) {
+            int sign = (msg->right_joystick_y >= 0) ? 2 : -2;
+            flipper_msg.velocity = {sign, sign, sign, sign};
+        }
+        if(flipper_msg.auto_control){
+            if (msg->right_joystick_y != 0) {
+            int sign = (msg->right_joystick_y >= 0) ? 2 : -2;
+            flipper_msg.velocity = {sign, -sign,sign, -sign};
+            }
+        
+        }
+    }
+
+    flipper_msg.name = {"joint_left_front", "joint_left_rear", "joint_right_front", "joint_right_rear"};
+    flipper_msg.reset_home_position = msg->home;
+    flipper_command_pub_->publish(flipper_msg);
+}
+
+    // Parameters
+    double crawler_linear_x_max_velocity_ = 0.0;    
+    double crawler_angular_z_max_velocity_ = 0.0;
+    double manipulator_max_linear_velocity_ = 0.0;
+    double manipulator_max_angular_velocity_ = 0.0;
+    double flipper_max_velocity_ = 0.0;
+    double flipper_min_velocity_ = 0.0;
+
+    private:
+    rclcpp::Subscription<ps5_msgs::msg::PS5Joy>::SharedPtr ps5_sub_;
+    rclcpp::Publisher<arm_msgs::msg::ArmCommand>::SharedPtr arm_command_pub_;
+    rclcpp::Publisher<flipper_msgs::msg::Flipper>::SharedPtr flipper_command_pub_;
+    rclcpp::Publisher<geometry_msgs::msg::Twist>::SharedPtr arm_twist_pub_;
+    rclcpp::Publisher<std_msgs::msg::String>::SharedPtr joy_mode_pub_;
+    rclcpp::Publisher<geometry_msgs::msg::Twist>::SharedPtr twist_pub_;
+    rclcpp::Publisher<geometry_msgs::msg::TwistStamped>::SharedPtr twiststamped_pub_;
+    rclcpp::Publisher<sensor_msgs::msg::JointState>::SharedPtr pub_gripper_;
+    rclcpp::Publisher<std_msgs::msg::Bool>::SharedPtr pub_flag_;
+    std_msgs::msg::String joy_mode_str_;
+    sensor_msgs::msg::JointState gripper_target_;
+    bool is_arm_mode_ = false;
+    bool is_back_mode = false;
+
+    ps5_msgs::msg::PS5Joy old_msg_;
+
+};
+
+int main(int argc, char **argv) {
+    rclcpp::init(argc, argv);
+    
+    rclcpp::spin(std::make_shared<Joy2Command>());
+    rclcpp::shutdown();
+    return 0;
+}

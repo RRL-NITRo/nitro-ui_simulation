@@ -1,0 +1,30 @@
+ps5_joy_publisher:
+  ros__parameters:
+    name: "ps5 controller"
+    type: "ps5-controller"
+    buttons:
+      square: 3
+      cross: 0
+      circle: 1
+      triangle: 2
+      l1: 4
+      r1: 5
+      l2: 6
+      r2: 7
+      command_l: 8
+      command_r: 9
+      joy_l: 11
+      joy_r: 12
+      home: 10
+    axes:
+      left_joystick_x: 0
+      left_joystick_y: 1
+      right_joystick_x: 3
+      right_joystick_y: 4
+      cross_up: 7
+      cross_left: 6
+      left_trigger: 2
+      right_trigger: 5
+    deadzones:
+      left_joystick: 0.1
+      right_joystick: 0.1

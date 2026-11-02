@@ -1,0 +1,124 @@
+<robot name="SampleDrone">
+    <link name="CHASSIS">
+      <inertial>
+        <origin xyz="0 0 0" />
+        <mass value="0.6" />
+        <inertia ixx="0.002405" ixy="0" ixz="0" iyy="0.002405" iyz="0" izz="0.004" />
+      </inertial>
+      <visual>
+        <origin xyz="0 0 0.1" />
+        <geometry>
+          <box size="0.2 0.2 0.09" />
+        </geometry>
+        <material>
+          <color rgba="0.8 0.8 0.8 1.0" />
+        </material>
+      </visual>
+      <camera name="FrontCamera">
+        <origin xyz="0.1 0 0" rpy="1.5708 -1.5708 0" />
+        <horizontal_fov>1.0821</horizontal_fov> <!-- 62 degrees in radians -->
+        <image width="640" height="480" />
+        <clip near="0.02" />
+        <update_rate>30</update_rate>
+      </camera>
+      <sensor type="gyro" name="GyroSensor">
+        <limit velocity="1000.0" />
+      </sensor>
+      <sensor type="accel" name="AccSensor">
+        <limit acceleration="1000.0 1000.0 1000.0" />
+      </sensor>
+    </link>
+  
+    <link name="ROTOR_RF">
+      <inertial>
+        <origin xyz="0 0 0" />
+        <mass value="0.03" />
+        <inertia ixx="1.98e-05" ixy="0" ixz="0" iyy="1.98e-05" iyz="0" izz="3.75e-05" />
+      </inertial>
+      <visual>
+        <origin xyz="0.1 -0.1 0.055" rpy="-1.5708 0 0" />
+        <geometry>
+          <cylinder radius="0.05" length="0.02" />
+        </geometry>
+        <material>
+          <color rgba="0 1 0 1.0" />
+        </material>
+      </visual>
+    </link>
+  
+    <link name="ROTOR_LF">
+      <inertial>
+        <origin xyz="0 0 0" />
+        <mass value="0.03" />
+        <inertia ixx="1.98e-05" ixy="0" ixz="0" iyy="1.98e-05" iyz="0" izz="3.75e-05" />
+      </inertial>
+      <visual>
+        <origin xyz="0.1 0.1 0.055" rpy="-1.5708 0 0" />
+        <geometry>
+          <cylinder radius="0.05" length="0.02" />
+        </geometry>
+        <material>
+          <color rgba="0 1 0 1.0" />
+        </material>
+      </visual>
+    </link>
+  
+    <link name="ROTOR_LR">
+      <inertial>
+        <origin xyz="0 0 0" />
+        <mass value="0.03" />
+        <inertia ixx="1.98e-05" ixy="0" ixz="0" iyy="1.98e-05" iyz="0" izz="3.75e-05" />
+      </inertial>
+      <visual>
+        <origin xyz="-0.1 0.1 0.055" rpy="-1.5708 0 0" />
+        <geometry>
+          <cylinder radius="0.05" length="0.02" />
+        </geometry>
+        <material>
+          <color rgba="1 0 0 1.0" />
+        </material>
+      </visual>
+    </link>
+  
+    <link name="ROTOR_RR">
+      <inertial>
+        <origin xyz="0 0 0" />
+        <mass value="0.03" />
+        <inertia ixx="1.98e-05" ixy="0" ixz="0" iyy="1.98e-05" iyz="0" izz="3.75e-05" />
+      </inertial>
+      <visual>
+        <origin xyz="-0.1 -0.1 0.055" rpy="-1.5708 0 0" />
+        <geometry>
+          <cylinder radius="0.05" length="0.02" />
+        </geometry>
+        <material>
+          <color rgba="1 0 0 1.0" />
+        </material>
+      </visual>
+    </link>
+  
+    <joint name="ROTOR_RF_joint" type="fixed">
+      <parent link="CHASSIS" />
+      <child link="ROTOR_RF" />
+      <origin xyz="0.1 -0.1 0.055" />
+    </joint>
+  
+    <joint name="ROTOR_LF_joint" type="fixed">
+      <parent link="CHASSIS" />
+      <child link="ROTOR_LF" />
+      <origin xyz="0.1 0.1 0.055" />
+    </joint>
+  
+    <joint name="ROTOR_LR_joint" type="fixed">
+      <parent link="CHASSIS" />
+      <child link="ROTOR_LR" />
+      <origin xyz="-0.1 0.1 0.055" />
+    </joint>
+  
+    <joint name="ROTOR_RR_joint" type="fixed">
+      <parent link="CHASSIS" />
+      <child link="ROTOR_RR" />
+      <origin xyz="-0.1 -0.1 0.055" />
+    </joint>
+  </robot>
+  

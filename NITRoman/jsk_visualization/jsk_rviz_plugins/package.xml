@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>jsk_rviz_plugins</name>
+  <version>2.1.8</version>
+  <description>The jsk_rviz_plugins package</description>
+  <maintainer email="k-okada@jsk.t.u-tokyo.ac.jp">Kei Okada</maintainer>
+  <maintainer email="Kotakkucu@gmail.com">Kotakku</maintainer>
+  <license>BSD</license>
+  <url type="repository">http://github.com/jsk-ros-pkg/jsk_visualization</url>
+  <url type="bugtracker">http://github.com/jsk-ros-pkg/jsk_visualization/issues</url>
+  <url type="website">https://jsk-visualization.readthedocs.io/en/latest/jsk_rviz_plugins/index.html</url>
+  <author email="k-okada@jsk.t.u-tokyo.ac.jp">Kei Okada</author>
+  <author email="youhei@jsk.t.u-tokyo.ac.jp">Yohei Kakiuchi</author>
+  <author email="s-fujii@jsk.t.u-tokyo.ac.jp">Shohei Fujii</author>
+  <author email="ueda@jsk.t.u-tokyo.ac.jp">Ryohei Ueda</author>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <build_depend>qtbase5-dev</build_depend>
+  <build_depend>rviz_ogre_vendor</build_depend>
+  <build_depend>boost</build_depend>
+  <build_export_depend>rviz_ogre_vendor</build_export_depend>
+
+  <exec_depend>libqt5-core</exec_depend>
+  <exec_depend>libqt5-gui</exec_depend>
+  <exec_depend>libqt5-opengl</exec_depend>
+  <exec_depend>libqt5-widgets</exec_depend>
+  <exec_depend>rviz_ogre_vendor</exec_depend>
+
+  <depend>cv_bridge</depend>
+  <depend>image_transport</depend>
+  <depend>std_msgs</depend>
+  <depend>geometry_msgs</depend>
+  <!-- <depend>interactive_markers</depend> -->
+  <depend>laser_geometry</depend>
+  <depend>nav_msgs</depend>
+  <depend>map_msgs</depend>
+  <depend>pluginlib</depend>
+  <depend>rclcpp</depend>
+  <depend>resource_retriever</depend>
+  <depend>rviz_common</depend>
+  <depend>rviz_rendering</depend>
+  <depend>tf2</depend>
+  <depend>tf2_geometry_msgs</depend>
+  <depend>tf2_ros</depend>
+  <depend>urdf</depend>
+  <depend>visualization_msgs</depend>
+  <depend>diagnostic_msgs</depend>
+  <depend>actionlib_msgs</depend>
+  <depend>jsk_footstep_msgs</depend>
+  <depend>jsk_gui_msgs</depend>
+  <depend>jsk_hark_msgs</depend>
+  <depend>jsk_recognition_msgs</depend>
+  <depend>jsk_rviz_plugin_msgs</depend>
+  <depend>jsk_topic_tools</depend>
+
+  <build_depend>rosidl_default_generators</build_depend>
+  <exec_depend>rosidl_default_runtime</exec_depend>
+
+  <test_depend>ament_lint_auto</test_depend>
+  <test_depend>ament_cmake_clang_format</test_depend>
+  <test_depend>ament_cmake_copyright</test_depend>
+  <test_depend>ament_cmake_gtest</test_depend>
+  <test_depend>ament_cmake_xmllint</test_depend>
+  <member_of_group>rosidl_interface_packages</member_of_group>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+
+
+
+</package>

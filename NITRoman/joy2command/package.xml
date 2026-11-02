@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>joy2command</name>
+  <version>0.0.0</version>
+  <description>TODO: Package description</description>
+  <maintainer email="clp13214@nitech.jp">kotaro</maintainer>
+  <license>MIT</license> <!-- Update with your actual license -->
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <build_depend>rclcpp</build_depend>
+  <build_depend>std_msgs</build_depend>
+  <build_depend>ps5_msgs</build_depend>
+  <build_depend>arm_msgs</build_depend>
+  <build_depend>flipper_msgs</build_depend>
+  <build_depend>sensor_msgs</build_depend>
+  <build_depend>yaml-cpp</build_depend>
+  <build_depend>geometry_msgs</build_depend>
+
+  <exec_depend>rclcpp</exec_depend>
+  <exec_depend>std_msgs</exec_depend>
+  <exec_depend>ps5_msgs</exec_depend>
+  <exec_depend>arm_msgs</exec_depend>
+    <exec_depend>flipper_msgs</exec_depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>
