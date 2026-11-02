@@ -8,7 +8,6 @@ links:
     name: "Root"
     joint_name: "Root"
     joint_type: free
-    # mass: 0.6
     translation: [ 0, 0, 0.1 ]
     mass: 0.3
     center_of_mass: [ 0, 0, 0 ]
@@ -42,7 +41,7 @@ links:
         name: RangeSensor
         translation: [ 0, 0, 0.015 ]
         rotation: [[ 1, 0, 0, 90 ], [ 0, 1, 0, -90 ] ]
-        direction: [ 1, 0, 0 ] # 正面向き
+        direction: [ 1, 0, 0 ]
         yaw_range: 360
         yaw_step: 2
         pitch_range: 30
@@ -66,7 +65,7 @@ links:
         type: SpotLight
         name: BackLight
         translation: [ -0.075, 0, 0.015 ]
-        direction: [ -1, 0, 0 ] # 後ろ向き
+        direction: [ -1, 0, 0 ]
         beamWidth: 36
         cutOffAngle: 40
         cutOffExponent: 6
@@ -76,7 +75,7 @@ links:
         type: SpotLight
         name: LeftLight
         translation: [ 0, 0.015, 0.015 ]
-        direction: [ 0, 1, 0 ] # 左向き
+        direction: [ 0, 1, 0 ]
         beamWidth: 36
         cutOffAngle: 40
         cutOffExponent: 6
@@ -86,7 +85,7 @@ links:
         type: SpotLight
         name: RightLight
         translation: [ 0, -0.015, 0.015 ]
-        direction: [ 0, -1, 0 ] # 右向き
+        direction: [ 0, -1, 0 ]
         beamWidth: 36
         cutOffAngle: 40
         cutOffExponent: 6
@@ -190,7 +189,7 @@ links:
         type: SpotLight
         name: FrontLight
         translation: [ 0.013, 0, 0.007 ]
-        direction: [ 1, 0, 0 ] # 正面向き
+        direction: [ 1, 0, 0 ]
         beamWidth: 36
         cutOffAngle: 40
         cutOffExponent: 6
@@ -220,242 +219,6 @@ links:
       1e-6, 0, 0,
       0, 1e-6, 0,
       0, 0, 1e-6 ]
-        
-  # -
-  #   name: "FrontCamera_link"
-  #   parent: "link_Tilt"
-  #   translation: [ 0.015, 0, 0 ]
-  #   rotation: [ [ 1, 0, 0, 90 ], [ 0, 1, 0, -90 ] ]
-  #   joint_name: "FrontCamera_joint"
-  #   joint_type: fixed
-  #   mass: 0.001
-  #   center_of_mass: [ 0, 0, 0 ]
-  #   inertia: [
-  #     0.0000001, 0, 0,
-  #     0, 0.0000001, 0,
-  #     0, 0, 0.0000001 ]
-  #   elements:
-  #     -
-  #       type: Camera
-  #       name: FrontCamera
-  #       format: COLOR_DEPTH
-  #       fieldOfView: 62
-  #       #width: 320
-  #       width: 640
-  #       #height: 240
-  #       height: 480
-  #       frameRate: 20
-  #       #frameRate: 10
-  #       on: true
-  #       elements:
-  #         -
-  #           type: Visual
-  #           elements:
-  #             -
-  #               type: Shape
-  #               appearance:
-  #                 material:
-  #                   diffuse: [ 0, 0, 0 ]
-  #               geometry:
-  #                 type: Box
-  #                 size: [ 0.005, 0.005, 0.0001 ]
-  # -
-  #   name: RangeSensor
-  #   parent: "Root"
-  #   translation: [ 0, 0, 0.015 ]
-  #   rotation: [[ 1, 0, 0, 90 ], [ 0, 1, 0, -90 ] ]
-  #   joint_name: "range_sensor_joint"
-  #   joint_type: fixed
-  #   mass: 0.001
-  #   center_of_mass: [ 0, 0, 0 ]
-  #   inertia: [
-  #     0.0000001, 0, 0,
-  #     0, 0.0000001, 0,
-  #     0, 0, 0.0000001 ]
-  #   elements:
-  #     -
-  #       type: RangeSensor
-  #       name: RangeSensor
-  #       direction: [ 1, 0, 0 ] # 正面向き
-  #       yaw_range: 360
-  #       #yaw_step: 2
-  #       # yaw_step: 5
-  #       yaw_step: 2
-  #       pitch_range: 30
-  #       #pitch_range: 150
-  #       #pitch_step: 2
-  #       pitch_step: 2
-  #       scan_rate: 10
-  #       #max_distance: 50
-  #       max_distance: 10
-  #       min_distance: 0.1
-  #       showRange: false
-  #       on: true
-  
-  # -
-  #   name: "imu_link"
-  #   parent: "Root"
-  #   joint_name: "imu_joint"
-  #   joint_type: fixed
-  #   mass: 0.001
-  #   center_of_mass: [ 0, 0, 0 ]
-  #   inertia: [
-  #     0.0000001, 0, 0,
-  #     0, 0.0000001, 0,
-  #     0, 0, 0.0000001 ]
-  #   elements:
-  #     -
-  #       type: RateGyroSensor
-  #       name: GyroSensor
-  #       maxAngularVelocity: 1000.0
-  #     -
-  #       type: AccelerationSensor
-  #       name: AccSensor
-  #       max_acceleration: [ 1000.0, 1000.0, 1000.0 ]
-      
-  
-  # -
-  #   name: "FrontLight_link"
-  #   parent: "link_Tilt"
-  #   translation: [ 0.013, 0, 0.007 ]
-  #   joint_name: "FrontLight_joint"
-  #   joint_type: fixed
-  #   mass: 0.001
-  #   center_of_mass: [ 0, 0, 0 ]
-  #   inertia: [
-  #     0.0000001, 0, 0,
-  #     0, 0.0000001, 0,
-  #     0, 0, 0.0000001 ]
-  #   elements:
-  #     -
-  #       type: SpotLight
-  #       name: FrontLight
-  #       direction: [ 1, 0, 0 ] # 正面向き
-  #       beamWidth: 36
-  #       cutOffAngle: 40
-  #       cutOffExponent: 6
-  #       attenuation: [ 1, 0, 0.01 ]
-  #       elements:
-  #         -
-  #           type: Visual
-  #           elements:
-  #             -
-  #               type: Shape
-  #               appearance:
-  #                 material:
-  #                   diffuse: [ 0, 0, 0 ]
-  #               geometry:
-  #                 type: Box
-  #                 size: [ 0.0005, 0.0005, 0.0005 ]
-    
-  # -
-  #   name: "BackLight_link"
-  #   parent: "Root"
-  #   translation: [ -0.075, 0, 0.015 ]
-  #   joint_name: "BackLight_joint"
-  #   joint_type: fixed
-  #   mass: 0.002
-  #   center_of_mass: [ 0, 0, 0 ]
-  #   inertia: [
-  #     0.0000001, 0, 0,
-  #     0, 0.0000001, 0,
-  #     0, 0, 0.0000001 ]
-  #   elements:
-  #     -
-  #       type: SpotLight
-  #       name: BackLight
-  #       direction: [ -1, 0, 0 ] # 後ろ向き
-  #       beamWidth: 36
-  #       cutOffAngle: 40
-  #       cutOffExponent: 6
-  #       attenuation: [ 1, 0, 0.01 ]
-  # -
-  #   name: "LeftLight_link"
-  #   parent: "Root"
-  #   translation: [ 0, 0.015, 0.015 ]
-  #   joint_name: "LeftLight_joint"
-  #   joint_type: fixed
-  #   mass: 0.001
-  #   center_of_mass: [ 0, 0, 0 ]
-  #   inertia: [
-  #     0.0000001, 0, 0,
-  #     0, 0.0000001, 0,
-  #     0, 0, 0.0000001 ]
-  #   elements:
-  #     -
-  #       type: SpotLight
-  #       name: LeftLight
-  #       direction: [ 0, 1, 0 ] # 左向き
-  #       beamWidth: 36
-  #       cutOffAngle: 40
-  #       cutOffExponent: 6
-  #       attenuation: [ 1, 0, 0.01 ]
-  # -
-  #   name: "RightLight_link"
-  #   parent: "Root"
-  #   translation: [ 0, -0.015, 0.015 ]
-  #   mass: 0.001
-  #   center_of_mass: [ 0, 0, 0 ]
-  #   inertia: [
-  #     0.0000001, 0, 0,
-  #     0, 0.0000001, 0,
-  #     0, 0, 0.0000001 ]
-  #   joint_name: "RightLight_joint"
-  #   joint_type: fixed
-  #   elements:
-  #     -
-  #       type: SpotLight
-  #       name: RightLight
-  #       direction: [ 0, -1, 0 ] # 右向き
-  #       beamWidth: 36
-  #       cutOffAngle: 40
-  #       cutOffExponent: 6
-  #       attenuation: [ 1, 0, 0.01 ]
-    
-  # -
-  #   name: "UpLight_link"
-  #   parent: "Root"
-  #   translation: [ 0.05, 0, 0.03 ]
-  #   mass: 0.001
-  #   center_of_mass: [ 0, 0, 0 ]
-  #   inertia: [
-  #     0.0000001, 0, 0,
-  #     0, 0.0000001, 0,
-  #     0, 0, 0.0000001 ]
-  #   joint_name: "UpLight_joint"
-  #   joint_type: fixed
-  #   elements:
-  #     -
-  #       type: SpotLight
-  #       name: UpLight
-  #       direction: [ 0, 0, 1 ] 
-  #       beamWidth: 36
-  #       cutOffAngle: 40
-  #       cutOffExponent: 6
-  #       attenuation: [ 1, 0, 0.01 ]
-  
-  # -
-  #   name: "DownLight_link"
-  #   parent: "Root"
-  #   translation: [ 0.05, 0, 0 ]
-  #   mass: 0.001
-  #   center_of_mass: [ 0, 0, 0 ]
-  #   inertia: [
-  #     0.0000001, 0, 0,
-  #     0, 0.0000001, 0,
-  #     0, 0, 0.0000001 ]
-  #   joint_name: "DownLight_joint"
-  #   joint_type: fixed
-  #   elements:
-  #     -
-  #       type: SpotLight
-  #       name: DownLight
-  #       direction: [ 0, 0, -1 ] 
-  #       beamWidth: 36
-  #       cutOffAngle: 40
-  #       cutOffExponent: 6
-  #       attenuation: [ 1, 0, 0.01 ]
-  
 
   -
     name: "ROTOR_RF"

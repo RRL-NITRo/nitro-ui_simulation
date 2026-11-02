@@ -60,12 +60,6 @@ links:
         nodesToWheelsMergeThreshold: -0.01
         nodesToWheelsSplitThreshold: -0.009
         enableMerge: true
-        # numNodesPerMergeSegment: 3
-        # contactReduction: 3
-        # enableLockToReachMergeCondition: true
-        # lockToReachMergeConditionCompliance: 0.1
-        # lockToReachMergeConditionSpookDamping: 0.01
-        # maxAngleMergeCondition: 1.0e-5
         nodeShape: &NODE_SHAPE
           appearance:
             material:
@@ -2673,9 +2667,8 @@ links:
     name: "openarm_right_right_finger_pad"
     parent: "openarm_right_right_finger"
     joint_type: fixed
-    translation: [ 0.00,  -0.015, 0.035 ]   # 内側(＋Y)へ少し寄せる
+    translation: [ 0.00,  -0.015, 0.035 ]
     rotation: [ 1, 0, 0, 6 ]
-    #material: Hand                          # パッドだけ高摩擦
     mass: 0.005
     center_of_mass: [ 0, 0, 0 ]
     inertia: [ 1e-6, 0, 0, 0, 1e-6, 0, 0, 0, 1e-6 ]
@@ -2684,16 +2677,15 @@ links:
         type: Shape
         appearance:
           material:
-            diffuse: [ 0.9, 0.2, 0.2 ]      # 視認用の色（任意）
+            diffuse: [ 0.9, 0.2, 0.2 ]
         geometry:
           type: Box
-          size: [ 0.030, 0.01, 0.08 ]    # 長さx, 厚みy, 幅z（仮）
+          size: [ 0.030, 0.01, 0.08 ]
   -
     name: "openarm_right_left_finger_pad"
     parent: "openarm_right_left_finger"
     joint_type: fixed
-    translation: [ 0.00,  0.015, 0.035 ]   # 内側(−Y)へ
-    #material: Hand
+    translation: [ 0.00,  0.015, 0.035 ]
     mass: 0.005
     center_of_mass: [ 0, 0, 0 ]
     inertia: [ 1e-6, 0, 0, 0, 1e-6, 0, 0, 0, 1e-6 ]
@@ -2710,8 +2702,7 @@ links:
     name: "openarm_left_right_finger_pad"
     parent: "openarm_left_right_finger"
     joint_type: fixed
-    translation: [ 0.00,  -0.015, 0.035 ]   # 内側(＋Y)へ
-    #material: Hand
+    translation: [ 0.00,  -0.015, 0.035 ]
     mass: 0.005
     center_of_mass: [ 0, 0, 0 ]
     inertia: [ 1e-6, 0, 0, 0, 1e-6, 0, 0, 0, 1e-6 ]
@@ -2728,8 +2719,7 @@ links:
     name: "openarm_left_left_finger_pad"
     parent: "openarm_left_left_finger"
     joint_type: fixed
-    translation: [ 0.00,  0.015, 0.035 ]   # 内側(−Y)へ
-    #material: Hand
+    translation: [ 0.00,  0.015, 0.035 ]
     mass: 0.005
     center_of_mass: [ 0, 0, 0 ]
     inertia: [ 1e-6, 0, 0, 0, 1e-6, 0, 0, 0, 1e-6 ]
