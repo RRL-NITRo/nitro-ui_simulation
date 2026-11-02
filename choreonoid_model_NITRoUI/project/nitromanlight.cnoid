@@ -103,6 +103,18 @@ items:
             export_symbols: false
         -
           id: 7
+          name: "JointStatePublisher"
+          plugin: Body
+          class: SimpleControllerItem
+          data:
+            isNoDelayMode: false
+            controllerOptions: ""
+            controller: "nitromanJointStatePublisher"
+            base_directory: "Controller directory"
+            reloading: false
+            export_symbols: false
+        -
+          id: 8
           name: "SensorVisualizer"
           plugin: Body
           class: SensorVisualizerItem
@@ -112,7 +124,7 @@ items:
                 class: CameraImageVisualizerItem
                 name: front_camera
         -
-          id: 8
+          id: 9
           name: "BodyROS2"
           plugin: ROS2
           class: BodyROS2Item

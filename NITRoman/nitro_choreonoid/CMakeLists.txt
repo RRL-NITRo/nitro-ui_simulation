@@ -52,11 +52,6 @@ add_subdirectory(src)
 #   ${tf2_LIBRARIES}
 # )
 
-install(DIRECTORY
-  launch
-  DESTINATION share/${PROJECT_NAME}/
-)
-
 
 
 ament_package()

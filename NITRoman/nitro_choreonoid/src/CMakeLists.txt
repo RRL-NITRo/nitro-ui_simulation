@@ -1,9 +1,3 @@
-choreonoid_add_simple_controller(ImaxJointStatePublisher ImaxJointStatePublisher.cpp)
-ament_target_dependencies(ImaxJointStatePublisher rclcpp sensor_msgs)
-
-choreonoid_add_simple_controller(JointController JointController.cpp)
-ament_target_dependencies(JointController rclcpp sensor_msgs)
-
 choreonoid_add_simple_controller(nitromanJointController nitromanJointController.cpp)
 ament_target_dependencies(nitromanJointController rclcpp sensor_msgs)
 
