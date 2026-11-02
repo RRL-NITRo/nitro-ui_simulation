@@ -36,7 +36,7 @@ links:
                         diffuse: [ 0.498, 1, 0.831 ]
                     geometry:
                       type: Resource
-                      uri: "meshes/simdrone.stl"
+                      uri: "package://nitro_description/meshes/simdrone.stl"
       -
         type: RangeSensor
         name: RangeSensor

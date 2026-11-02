@@ -1,0 +1,48 @@
+rtabmap:
+  ros__parameters:
+    frame_id: "Root"
+    map_frame_id: "map"
+    odom_frame_id: "odom"
+    subscribe_depth: false
+    subscribe_rgb: false
+    subscribe_rgbd: false
+    subscribe_scan: false
+    subscribe_scan_cloud: true
+    subscribe_odom_info: true
+    approx_sync: false
+    sync_queue_size: 10
+    queue_size: 10
+    odom_sensor_sync: true
+
+    RGBD/AngularUpdate: "0.05"
+    RGBD/LinearUpdate: "0.05"
+    RGBD/CreateOccupancyGrid: "false"
+    RGBD/ProximityMaxGraphDepth: "0"
+    RGBD/ProximityPathMaxNeighbors: "1"
+
+    Grid/RangeMax: "60"
+    Grid/MinClusterSize: "10"
+    Grid/FromDepth: "false"
+    Grid/Incremental: "true"
+
+    Reg/Strategy: "1"
+    Reg/Force6DOF: "true"
+
+    Icp/VoxelSize: "0.1"
+    Icp/PointToPlane: "true"
+    Icp/PointToPlaneK: "20"
+    Icp/PointToPlaneRadius: "0"
+    Icp/Iterations: "10"
+    Icp/Epsilon: "0.001"
+    Icp/MaxTranslation: "3"
+    Icp/MaxCorrespondenceDistance: "1"
+    Icp/Strategy: "1"
+    Icp/OutlierRatio: "0.7"
+    Icp/CorrespondenceRatio: "0.2"
+
+    Mem/NotLinkedNodesKept: "false"
+    Mem/STMSize: "30"
+    Mem/LaserScanNormalK: "20"
+    RGBD/OptimizeFromGraphEnd: "true"
+
+    Optimizer/Strategy: "1"
