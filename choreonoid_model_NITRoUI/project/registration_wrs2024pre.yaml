@@ -3,31 +3,38 @@ robot_list: &RobotList [ ../../choreonoid_model_NITRoUI/project/nitromanlight, .
 
 registrations:
   - &Mission2
-    name: M2
-    task_project: [ M2/A1, M2/A2, M2/A3, M2/A4, M2/Common ]
+    name: M2-A1
+    task_project: [ M2/A1, M2/Common ]
     robot_project: *RobotList
-    robot_alignment: X+
-    start_position: [ -9.5, -7.0, 0.0 ]
+    robot_alignment: Y-
+    start_position: [ -7.0, -4.0, 0.0 ]
     simulator_project: [ AGXSimulator, AISTSimulator ]
     view_project: M2/RefereeView
     enable_recording: true
     # enable_tracking: true
     enable_ros: true
   - <<: *Mission2
-    name: M2-A1
-    task_project: [ M2/A1, M2/A2, M2/Common ]
-    start_position: [ -9.5, -7.0, 0.0 ]
-  - <<: *Mission2
     name: M2-A2
-    task_project: [ M2/A2, M2/A3, M2/Common ]
+    task_project: [ M2/A2, M2/Common ]
+    robot_alignment: X+
     start_position: [ 4.0, -7.0, 0.0 ]
   - <<: *Mission2
     name: M2-A3
-    task_project: [ M2/A3, M2/A4, M2/Common ]
+    task_project: [ M2/A3, M2/Common ]
     robot_alignment: Y+
     start_position: [ 7.0, 4.0, 0.0 ]
   - <<: *Mission2
     name: M2-A4
-    task_project: [ M2/A4, M2/A1, M2/Common ]
+    task_project: [ M2/A4, M2/Common ]
     robot_alignment: X-
     start_position: [ -4.0, 7.0, 0.0 ]
+  - <<: *Mission2
+    name: M2-A12
+    task_project: [ M2/A1, M2/A2, M2/Common ]
+    robot_alignment: Y-
+    start_position: [ -7.0, -4.0, 0.0 ]
+  - <<: *Mission2
+    name: M2-A34
+    task_project: [ M2/A3, M2/A4, M2/Common ]
+    robot_alignment: Y+
+    start_position: [ 7.0, 4.0, 0.0 ]
