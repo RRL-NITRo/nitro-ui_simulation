@@ -5,7 +5,8 @@
   <version>0.0.0</version>
   <description>TODO: Package description</description>
   <maintainer email="suzuki.kenta38@jaea.go.jp">k38-suzuki</maintainer>
-  <license>TODO: License declaration</license>
+  <license file="LICENSE">MIT</license>
+  <license file="COPYING">GPL-3.0-only</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
 

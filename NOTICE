@@ -1,0 +1,98 @@
+nitro-ui_simulation
+Copyright 2025 NITRo-UI
+
+Unless otherwise noted, the software in this repository is licensed under
+the MIT License (see LICENSE). The following are exceptions:
+
+  - NITRoman/nitro_description
+      Apache License, Version 2.0 (contains files derived from OpenArm;
+      see below).
+  - choreonoid_model_NITRoUI/model/nitromanlight.body
+      Apache License, Version 2.0 (derived from OpenArm; see below).
+  - NITRone/nitro_choreonoid_ros2_sample_drone_tutorial
+      Contains GPL-3.0 code (MadgwickAHRS), so this package as a whole is
+      distributed under the GNU General Public License, version 3
+      (see below).
+  - Third-party software listed below, which keeps its own license.
+
+NITRoman/OpenArm/openarm_ik_tools was written by NITRo-UI and is licensed
+under the MIT License. It is not part of the upstream OpenArm repositories.
+
+This repository includes third-party software. Their licenses and
+copyright notices are listed below.
+
+================================================================================
+OpenArm (Enactic, Inc.)
+================================================================================
+
+Copyright 2025 Enactic, Inc.
+Licensed under the Apache License, Version 2.0.
+https://github.com/enactic/openarm
+
+The following packages are included as copies of the upstream repositories.
+Each directory contains the original LICENSE file.
+
+  - NITRoman/OpenArm/openarm_can
+      https://github.com/enactic/openarm_can
+  - NITRoman/OpenArm/openarm_description
+      https://github.com/enactic/openarm_description
+  - NITRoman/OpenArm/openarm_ros2
+      https://github.com/enactic/openarm_ros2
+
+Modified files
+--------------
+The following files are derived from openarm_description and were modified
+by NITRo-UI. They are distributed under the Apache License, Version 2.0.
+
+  - NITRoman/nitro_description/xacro/openarm.xacro
+      OpenArm model integrated into NITRoman as a xacro macro; meshes and
+      materials changed.
+  - NITRoman/nitro_description/meshes/arm/v10/visual/*light.stl
+      Lightweight versions of the OpenArm arm link visual meshes.
+  - NITRoman/nitro_description/meshes/arm/v10/collision/*_symp.stl
+      Simplified versions of the OpenArm arm link collision meshes.
+  - NITRoman/nitro_description/meshes/ee/openarm_hand/
+      Lightweight / modified versions of the OpenArm hand meshes.
+  - choreonoid_model_NITRoUI/model/nitromanlight.body
+      OpenArm model converted to the Choreonoid body format and integrated
+      into NITRoman, using the modified meshes above.
+
+NITRoman/nitro_description/xacro/nitroman.xacro uses the modified OpenArm
+model via openarm.xacro.
+
+"OpenArm" is used here only to identify the origin of these files. This
+project is not affiliated with or endorsed by Enactic, Inc.
+
+================================================================================
+jsk_visualization / jsk_rviz_plugins (JSK Lab)
+================================================================================
+
+Copyright (c) 2014, JSK Lab
+Licensed under the BSD License (see the header of each source file).
+https://github.com/jsk-ros-pkg/jsk_visualization
+
+  - NITRoman/jsk_visualization
+
+================================================================================
+nitro_choreonoid_ros2_sample_drone_tutorial (Kenta Suzuki)
+================================================================================
+
+Copyright (c) 2024 Kenta Suzuki
+Licensed under the MIT License (see the LICENSE file in the directory).
+
+  - NITRone/nitro_choreonoid_ros2_sample_drone_tutorial
+
+This package also includes the following files from the Arduino MadgwickAHRS
+library, which are licensed under the GNU General Public License, version 3
+(see the COPYING file in the directory):
+
+Copyright (c) Sebastian Madgwick, Arduino LLC
+https://github.com/arduino-libraries/MadgwickAHRS
+
+  - NITRone/nitro_choreonoid_ros2_sample_drone_tutorial/include/MadgwickAHRS.h
+      Modified by NITRo-UI: added getQ0() - getQ3() accessors.
+  - NITRone/nitro_choreonoid_ros2_sample_drone_tutorial/src/MadgwickAHRS.cpp
+
+Because the package is built together with these files, the package as a
+whole is distributed under the GNU General Public License, version 3. The
+MIT-licensed files remain available under the MIT License.

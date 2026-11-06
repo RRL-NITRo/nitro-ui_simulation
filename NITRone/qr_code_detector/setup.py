@@ -20,7 +20,7 @@ setup(
     maintainer='yoshiko',
     maintainer_email='yoshiko@todo.todo',
     description='TODO: Package description',
-    license='TODO: License declaration',
+    license='MIT',
     entry_points={
         'console_scripts': [
             'qr_code_detector_node = qr_code_detector.qr_code_detector_node:main',

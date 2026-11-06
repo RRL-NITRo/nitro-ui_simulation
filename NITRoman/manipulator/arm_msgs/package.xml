@@ -8,7 +8,7 @@
   <maintainer email="clp13214@nitech.jp">kotaro</maintainer>
 
   <!-- One license tag required, multiple allowed, one license per tag -->
-  <license>TODO</license>
+  <license>MIT</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
 

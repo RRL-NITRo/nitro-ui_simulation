@@ -19,7 +19,7 @@
   <name>openarm_bringup</name>
   <version>1.0.0</version>
   <description>Bringup script for OpenArm</description>
-  <maintainer email="clp13214@nitech.jp">kotaro</maintainer>
+  <maintainer email="openarm_dev@enactic.ai">Enactic, Inc.</maintainer>
   <license>Apache-2.0</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
