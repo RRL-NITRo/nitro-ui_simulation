@@ -70,6 +70,7 @@ jsk_visualization / jsk_rviz_plugins (JSK Lab)
 Copyright (c) 2014, JSK Lab
 Licensed under the BSD License (see the header of each source file).
 https://github.com/jsk-ros-pkg/jsk_visualization
+ROS 2 port: https://github.com/Kotakku/jsk_visualization
 
   - NITRoman/jsk_visualization
 
